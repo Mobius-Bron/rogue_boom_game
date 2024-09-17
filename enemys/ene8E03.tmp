@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://djd2td8kh8ebf"]
+
+[ext_resource type="Script" path="res://enemys/enemy.gd" id="1_wj2yn"]
+[ext_resource type="Texture2D" uid="uid://fohj8djb5vtb" path="res://icon.svg" id="1_x257i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wfn1q"]
+radius = 8.75
+
+[node name="enemy" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_wj2yn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.17233e-07, 0)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_x257i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.6, 1.6)
+shape = SubResource("CircleShape2D_wfn1q")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 300.0
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

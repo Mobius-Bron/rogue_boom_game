@@ -23,9 +23,9 @@ func _ready():
 	await get_tree().create_timer(boom_time).timeout
 	boom_()
 
-func _process(delta):
+func _process(_delta):
 	timeLabel.text = str(int(boom_time)+1)
-	boom_time -= delta
+	boom_time -= _delta
 	pass
 		
 func boom_():
