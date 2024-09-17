@@ -55,9 +55,7 @@ func boom_():
 				i.boom_()
 	
 	for i in enemyList:
-		i.hp -= atk
-		if i.hp <=0:
-			i.queue_free()
+		i.hurt(atk)
 	
 	self.queue_free()
 
