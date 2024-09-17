@@ -16,7 +16,7 @@ func _physics_process(_delta: float) -> void:
 	
 	HP_Label.text = str(int(hp))
 	
-func hunt(atk):
+func hurt(atk):
 	hp -= atk
 	if hp <= 0:
 		self.queue_free()
