@@ -1,20 +1,68 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvi1p33rdmmj5"]
+[gd_scene load_steps=9 format=3 uid="uid://bvi1p33rdmmj5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_g3aws"]
-[ext_resource type="Texture2D" uid="uid://fohj8djb5vtb" path="res://icon.svg" id="1_ythnc"]
+[ext_resource type="Texture2D" uid="uid://dm6l65bdlkkps" path="res://player/炸弹人行走图4.png" id="2_ewdma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn88"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ts4e"]
+atlas = ExtResource("2_ewdma")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjudg"]
+atlas = ExtResource("2_ewdma")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkfpu"]
+atlas = ExtResource("2_ewdma")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5gdt"]
+atlas = ExtResource("2_ewdma")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ajff7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ts4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjudg")
+}],
+"loop": true,
+"name": &"stay",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ts4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkfpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ts4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5gdt")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_g3aws")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.90735e-06, 1.90735e-06)
-scale = Vector2(0.3125, 0.3125)
-texture = ExtResource("1_ythnc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_bfn88")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_ajff7")
+animation = &"walk"
+frame_progress = 0.918668
