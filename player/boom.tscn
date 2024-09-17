@@ -84,3 +84,4 @@ shape = SubResource("RectangleShape2D_j242p")
 shape = SubResource("RectangleShape2D_qc36b")
 
 [connection signal="area_entered" from="wave_area" to="." method="_on_wave_area_area_entered"]
+[connection signal="area_exited" from="wave_area" to="." method="_on_wave_area_area_exited"]

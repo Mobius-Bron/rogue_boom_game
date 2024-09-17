@@ -15,6 +15,7 @@ var layer: int = 0
 
 var wave_list = [2,0,1,2,3]
 var nextTargets = []
+var enemyList = []
 
 func _ready():
 	cx.scale.x = length + length + 1
@@ -53,6 +54,11 @@ func boom_():
 				i.atk += atk
 				i.boom_()
 	
+	for i in enemyList:
+		i.hp -= atk
+		if i.hp <=0:
+			i.queue_free()
+	
 	self.queue_free()
 
 func _on_wave_area_area_entered(area):
@@ -60,3 +66,17 @@ func _on_wave_area_area_entered(area):
 		var node = area.get_parent()
 		if node != self:
 			nextTargets.append(node)
+	elif  area.name == "enemy_area":
+		var node = area.get_parent()
+		if node not in enemyList:
+			enemyList.append(node)
+
+func _on_wave_area_area_exited(area):
+	if area.name == "boom_area":
+		var node = area.get_parent()
+		if node != self:
+			nextTargets.erase(node)
+	elif  area.name == "hunt_area":
+		var node = area.get_parent()
+		if node in enemyList:
+			enemyList.erase(node)

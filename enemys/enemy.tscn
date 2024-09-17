@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://djd2td8kh8ebf"]
+[gd_scene load_steps=5 format=3 uid="uid://djd2td8kh8ebf"]
 
 [ext_resource type="Script" path="res://enemys/enemy.gd" id="1_wj2yn"]
 [ext_resource type="Texture2D" uid="uid://fohj8djb5vtb" path="res://icon.svg" id="1_x257i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fxxxp"]
-radius = 9.42176
+radius = 9.375
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wrjw"]
+size = Vector2(20, 11.25)
 
 [node name="enemy" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -19,7 +22,9 @@ texture = ExtResource("1_x257i")
 offset = Vector2(1.66893e-06, -64)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
 debug_enabled = true
+debug_use_custom = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -29,5 +34,19 @@ autostart = true
 position = Vector2(3.38813e-21, -2.38419e-07)
 scale = Vector2(1.6, 1.6)
 shape = SubResource("CircleShape2D_fxxxp")
+
+[node name="HP" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -47.0
+offset_right = 20.0
+offset_bottom = -24.0
+horizontal_alignment = 1
+
+[node name="hunt_area" type="Area2D" parent="."]
+
+[node name="enemy_c" type="CollisionShape2D" parent="hunt_area"]
+position = Vector2(3.38813e-21, 0)
+scale = Vector2(1.6, 1.6)
+shape = SubResource("RectangleShape2D_2wrjw")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
