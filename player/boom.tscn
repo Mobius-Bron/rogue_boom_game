@@ -53,6 +53,7 @@ sources/2 = SubResource("TileSetAtlasSource_5jq0c")
 
 [node name="boom" type="Node2D"]
 script = ExtResource("1_oye5e")
+length = 10
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-16, -16)
@@ -78,7 +79,6 @@ shape = SubResource("RectangleShape2D_f5jkh")
 shape = SubResource("RectangleShape2D_j242p")
 
 [node name="boom_area" type="Area2D" parent="."]
-scale = Vector2(1.6, 1.6)
 
 [node name="boom_c" type="CollisionShape2D" parent="boom_area"]
 shape = SubResource("RectangleShape2D_qc36b")

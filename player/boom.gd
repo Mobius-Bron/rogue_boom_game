@@ -44,7 +44,6 @@ func boom_():
 			tilemap.set_cell(layer, pos, 0, Vector2i(i, 2))
 			pos = Vector2i(0, -x)
 			tilemap.set_cell(layer, pos, 0, Vector2i(i, 2))
-			await get_tree().create_timer(0.01).timeout
 			
 		await get_tree().create_timer(0.05).timeout
 	
