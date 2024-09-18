@@ -89,9 +89,22 @@ position = Vector2(-286, 46)
 player = NodePath("../player")
 
 [node name="enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_amxhr")]
-position = Vector2(-191, 330)
+position = Vector2(-635, 332)
 player = NodePath("../player")
 
 [node name="enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_amxhr")]
 position = Vector2(-8, 328)
+player = NodePath("../player")
+
+[node name="enemy4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_amxhr")]
+y_sort_enabled = false
+position = Vector2(-148, 417)
+player = NodePath("../player")
+
+[node name="enemy5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_amxhr")]
+position = Vector2(425, 391)
+player = NodePath("../player")
+
+[node name="enemy6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_amxhr")]
+position = Vector2(-554, -60)
 player = NodePath("../player")
