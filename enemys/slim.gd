@@ -13,13 +13,18 @@ var player_list = []
 @onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
 @onready var HP_Label: Label = $HP
 
+
+func _ready():
+	$AnimatedSprite2D.animation = "walk"
+	$AnimatedSprite2D.play()
+
 func _physics_process(_delta: float) -> void:
 	var dir = to_local(navigationAgent.get_next_path_position()).normalized()
 	velocity = dir * speed
 	move_and_slide()
 	
 	HP_Label.text = str(int(hp))
-	
+
 func hurt(atk):
 	hp -= atk
 	if hp <= 0:
