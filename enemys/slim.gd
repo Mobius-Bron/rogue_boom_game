@@ -12,6 +12,7 @@ var player_list = []
 @export var player: CharacterBody2D
 @onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
 @onready var HP_Label: Label = $HP
+@onready var anim_2d = $AnimatedSprite2D
 
 
 func _ready():
@@ -21,6 +22,10 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	var dir = to_local(navigationAgent.get_next_path_position()).normalized()
 	velocity = dir * speed
+	if dir.x > 0.1:
+		anim_2d.flip_h = false
+	elif dir.x < -0.1:
+		anim_2d.flip_h = true
 	move_and_slide()
 	
 	HP_Label.text = str(int(hp))
