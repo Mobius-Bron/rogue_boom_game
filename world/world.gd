@@ -16,5 +16,5 @@ func _input(event):
 	if Input.is_action_just_pressed("click_l"):
 		var new_ = boom.instantiate()
 		var mouse_pos = get_global_mouse_position()
-		new_.position = mouse_pos
+		new_.position = $player.global_position
 		add_child(new_)

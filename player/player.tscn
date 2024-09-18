@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvi1p33rdmmj5"]
+[gd_scene load_steps=10 format=3 uid="uid://bvi1p33rdmmj5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_g3aws"]
 [ext_resource type="Texture2D" uid="uid://dm6l65bdlkkps" path="res://player/炸弹人行走图4.png" id="2_ewdma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn88"]
-size = Vector2(17, 9)
+size = Vector2(14, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ts4e"]
 atlas = ExtResource("2_ewdma")
@@ -53,6 +53,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmvh0"]
+size = Vector2(34, 27)
+
 [node name="player" type="CharacterBody2D"]
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -81,5 +84,5 @@ horizontal_alignment = 1
 [node name="player_hurt_area" type="Area2D" parent="."]
 
 [node name="player_c" type="CollisionShape2D" parent="player_hurt_area"]
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_bfn88")
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_pmvh0")
