@@ -64,7 +64,7 @@ func _on_wave_area_area_entered(area):
 		var node = area.get_parent()
 		if node != self:
 			nextTargets.append(node)
-	elif  area.name == "hunt_area":
+	elif  area.name == "hurt_area":
 		var node = area.get_parent()
 		if node not in enemyList:
 			enemyList.append(node)

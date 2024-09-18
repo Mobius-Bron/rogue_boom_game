@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var speed = 50
+var atk = 1
 
 @export var max_hp = 30
 var hp = 30
@@ -23,3 +24,12 @@ func hurt(atk):
 
 func _on_timer_timeout():
 	navigationAgent.target_position = player.global_position
+
+func _on_atk_area_area_entered(area):
+	if area.name == "hurt_area":
+		var node = area.get_parent()
+		if node.name == "player":
+			node.hurt(atk)
+
+func _on_atk_area_area_exited(area):
+	pass # Replace with function body.
