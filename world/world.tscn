@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://world/world.gd" id="1_7a0gx"]
 [ext_resource type="PackedScene" uid="uid://bvi1p33rdmmj5" path="res://player/player.tscn" id="1_yliii"]
 [ext_resource type="Texture2D" uid="uid://do87c0y7yr6sp" path="res://world/map.png" id="2_q65jc"]
-[ext_resource type="PackedScene" uid="uid://djd2td8kh8ebf" path="res://enemys/enemy.tscn" id="4_amxhr"]
+[ext_resource type="PackedScene" uid="uid://djd2td8kh8ebf" path="res://enemys/slim.tscn" id="4_amxhr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hct3n"]
 vertices = PackedVector2Array(17, 18, -17, 18, -17, -18, 17, -18)

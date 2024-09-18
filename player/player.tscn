@@ -78,8 +78,8 @@ offset_right = 20.0
 offset_bottom = -42.0
 horizontal_alignment = 1
 
-[node name="hurt_area" type="Area2D" parent="."]
+[node name="player_hurt_area" type="Area2D" parent="."]
 
-[node name="player_c" type="CollisionShape2D" parent="hurt_area"]
+[node name="player_c" type="CollisionShape2D" parent="player_hurt_area"]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_bfn88")

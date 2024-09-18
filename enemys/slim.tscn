@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://djd2td8kh8ebf"]
 
-[ext_resource type="Script" path="res://enemys/enemy.gd" id="1_wj2yn"]
+[ext_resource type="Script" path="res://enemys/slim.gd" id="1_wj2yn"]
 [ext_resource type="Texture2D" uid="uid://fohj8djb5vtb" path="res://icon.svg" id="1_x257i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wrjw"]
@@ -31,6 +31,9 @@ path_postprocessing = 1
 wait_time = 0.1
 autostart = true
 
+[node name="atk_timer" type="Timer" parent="."]
+autostart = true
+
 [node name="HP" type="Label" parent="."]
 offset_left = -20.0
 offset_top = -47.0
@@ -56,5 +59,6 @@ shape = SubResource("CircleShape2D_fxxxp")
 shape = SubResource("RectangleShape2D_3q0dx")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="atk_timer" to="." method="_on_atk_timer_timeout"]
 [connection signal="area_entered" from="atk_area" to="." method="_on_atk_area_area_entered"]
 [connection signal="area_exited" from="atk_area" to="." method="_on_atk_area_area_exited"]
