@@ -65,11 +65,11 @@ func _on_wave_area_area_entered(area):
 		var node = area.get_parent()
 		if node != self:
 			nextTargets.append(node)
-	elif  area.name == "hurt_area":
+	elif area.name == "hurt_area":
 		var node = area.get_parent()
 		if node not in enemyList:
 			enemyList.append(node)
-	elif  area.name == "player_hurt_area":
+	elif area.name == "player_hurt_area":
 		var node = area.get_parent()
 		if node not in enemyList:
 			enemyList.append(node)
@@ -79,11 +79,11 @@ func _on_wave_area_area_exited(area):
 		var node = area.get_parent()
 		if node != self:
 			nextTargets.erase(node)
-	elif  area.name == "hunt_area":
+	elif area.name == "hurt_area":
 		var node = area.get_parent()
 		if node in enemyList:
 			enemyList.erase(node)
-	elif  area.name == "player_hunt_area":
+	elif area.name == "player_hurt_area":
 		var node = area.get_parent()
 		if node in enemyList:
 			enemyList.erase(node)
