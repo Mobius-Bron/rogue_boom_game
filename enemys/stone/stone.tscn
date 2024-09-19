@@ -10,7 +10,7 @@ size = Vector2(20, 11.25)
 radius = 9.375
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b6pue"]
-radius = 87.023
+radius = 88.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cv04g"]
 atlas = ExtResource("1_6v3b0")
@@ -64,6 +64,8 @@ animations = [{
 }]
 
 [node name="stone" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_mm487")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -103,5 +105,11 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_a2k80")
 animation = &"walk"
 
+[node name="atk_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="atk_area" to="." method="_on_atk_area_area_entered"]
 [connection signal="area_exited" from="atk_area" to="." method="_on_atk_area_area_exited"]
+[connection signal="timeout" from="atk_timer" to="." method="_on_atk_timer_timeout"]

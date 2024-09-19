@@ -86,6 +86,8 @@ animations = [{
 }]
 
 [node name="magma" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_c7gec")
 
 [node name="wave_area" type="Area2D" parent="."]
