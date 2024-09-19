@@ -34,7 +34,7 @@ func _ready():
 	cx.scale.x = length + length + 1
 	cy.scale.y = length + length + 1
 	length += 1
-	$AnimatedSprite2D.animation = "walk"
+	$AnimatedSprite2D.animation = "run"
 	$AnimatedSprite2D.play()
 
 func _physics_process(_delta: float) -> void:
@@ -59,6 +59,7 @@ func hurt(_atk):
 
 func boom_and_dead():
 	is_able = false
+	$AnimatedSprite2D.animation = "boom"
 	await get_tree().create_timer(boom_time).timeout
 	for i in wave_list:
 		var pos = Vector2i(0, 0)

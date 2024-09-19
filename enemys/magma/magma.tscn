@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bahvrnyebs6mn"]
+[gd_scene load_steps=19 format=3 uid="uid://bahvrnyebs6mn"]
 
 [ext_resource type="Script" path="res://enemys/magma/magma.gd" id="1_c7gec"]
 [ext_resource type="Texture2D" uid="uid://d3bm6jq0ga0ih" path="res://player/boom_wave_.png" id="2_8kqf4"]
-[ext_resource type="Texture2D" uid="uid://bbvn33rur40ph" path="res://enemys/slim/史莱姆_绿_王冠.png" id="2_62fe5"]
+[ext_resource type="Texture2D" uid="uid://dtkkmc3qlvmr0" path="res://enemys/magma/岩浆怪动画.png" id="3_sv6md"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50gye"]
 
@@ -34,55 +34,73 @@ size = Vector2(20, 11.25)
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0oww"]
 radius = 9.375
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cv04g"]
-atlas = ExtResource("2_62fe5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m08py"]
+atlas = ExtResource("3_sv6md")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x4kq"]
+atlas = ExtResource("3_sv6md")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t44mb"]
+atlas = ExtResource("3_sv6md")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cc47"]
+atlas = ExtResource("3_sv6md")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewdoi"]
+atlas = ExtResource("3_sv6md")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ycrlh"]
-atlas = ExtResource("2_62fe5")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pe8w7"]
-atlas = ExtResource("2_62fe5")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qpi0k"]
-atlas = ExtResource("2_62fe5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2xsh"]
+atlas = ExtResource("3_sv6md")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cxdj4"]
-atlas = ExtResource("2_62fe5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vudxk"]
+atlas = ExtResource("3_sv6md")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87yy2"]
+atlas = ExtResource("3_sv6md")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5o1pe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cv04g")
+"texture": SubResource("AtlasTexture_m08py")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ycrlh")
+"texture": SubResource("AtlasTexture_4x4kq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t44mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cc47")
 }],
 "loop": true,
-"name": &"stay",
+"name": &"boom",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pe8w7")
+"texture": SubResource("AtlasTexture_ewdoi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qpi0k")
+"texture": SubResource("AtlasTexture_x2xsh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cxdj4")
+"texture": SubResource("AtlasTexture_vudxk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qpi0k")
+"texture": SubResource("AtlasTexture_87yy2")
 }],
 "loop": true,
-"name": &"walk",
-"speed": 8.0
+"name": &"run",
+"speed": 5.0
 }]
 
 [node name="magma" type="CharacterBody2D"]
@@ -133,10 +151,9 @@ scale = Vector2(1.6, 1.6)
 shape = SubResource("CircleShape2D_y0oww")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.910935, 0.012697, 5.77569e-07, 1)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_5o1pe")
-animation = &"walk"
+animation = &"boom"
 
 [connection signal="area_entered" from="wave_area" to="." method="_on_wave_area_area_entered"]
 [connection signal="area_exited" from="wave_area" to="." method="_on_wave_area_area_exited"]
