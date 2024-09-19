@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://enemys/slim/slim.gd" id="1_wj2yn"]
 [ext_resource type="Texture2D" uid="uid://bbvn33rur40ph" path="res://enemys/slim/史莱姆_绿_王冠.png" id="2_wiayn"]
-[ext_resource type="Texture2D" uid="uid://bysx8agdh2xvr" path="res://enemys/flame_bat/health_under.png" id="3_pnma1"]
-[ext_resource type="Texture2D" uid="uid://c6c8qqjfu25k8" path="res://enemys/flame_bat/health_progress.png" id="4_4kc0y"]
+[ext_resource type="Texture2D" uid="uid://b3jbsekp6wog2" path="res://enemys/slim/health_bar_under.png" id="3_h274s"]
+[ext_resource type="Texture2D" uid="uid://djuxjxvba2r1k" path="res://enemys/slim/health_bar - progress.png" id="4_1tj8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wrjw"]
 size = Vector2(20, 11.25)
@@ -111,8 +111,8 @@ offset_bottom = -2.0
 size_flags_vertical = 0
 max_value = 30.0
 value = 30.0
-texture_under = ExtResource("3_pnma1")
-texture_progress = ExtResource("4_4kc0y")
+texture_under = ExtResource("3_h274s")
+texture_progress = ExtResource("4_1tj8b")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="atk_timer" to="." method="_on_atk_timer_timeout"]

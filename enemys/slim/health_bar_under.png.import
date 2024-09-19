@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6c8qqjfu25k8"
-path="res://.godot/imported/health_progress.png-7ac853494af2f11e312d301464ae939f.ctex"
+uid="uid://b3jbsekp6wog2"
+path="res://.godot/imported/health_bar_under.png-79cae10aeb8c174b9c64cd3a899e51e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemys/flame_bat/health_progress.png"
-dest_files=["res://.godot/imported/health_progress.png-7ac853494af2f11e312d301464ae939f.ctex"]
+source_file="res://enemys/slim/health_bar_under.png"
+dest_files=["res://.godot/imported/health_bar_under.png-79cae10aeb8c174b9c64cd3a899e51e2.ctex"]
 
 [params]
 

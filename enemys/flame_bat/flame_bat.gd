@@ -18,7 +18,6 @@ func _ready():
 	$health_bar.value=current_health
 	$health_bar.max_value=max_health
 
-
 func _physics_process(_delta: float) -> void:
 	var dir = to_local(navigationAgent.get_next_path_position()).normalized()
 	velocity = dir * speed

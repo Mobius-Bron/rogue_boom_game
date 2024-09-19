@@ -43,8 +43,8 @@ func _physics_process(_delta: float) -> void:
 
 func hurt(_atk):
 	current_health -= _atk
+	$health_bar.value = current_health
 	if current_health <= 0:
-		$health_bar.value = current_health
 		self.queue_free()
 
 func _on_timer_timeout():
