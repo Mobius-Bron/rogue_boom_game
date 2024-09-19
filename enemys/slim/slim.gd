@@ -12,13 +12,14 @@ var player_list = []
 @export var player: CharacterBody2D
 @onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
 @onready var anim_2d = $AnimatedSprite2D
+@onready var health_bar = $health_bar
 
 
 func _ready():
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
-	$health_bar.value=current_health
-	$health_bar.max_value=max_health
+	health_bar.value=current_health
+	health_bar.max_value=max_health
 	
 func _physics_process(_delta: float) -> void:
 	var dir = to_local(navigationAgent.get_next_path_position()).normalized()
@@ -30,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func hurt(_atk):
-	current_health -= _atk
+	current_health -= atk
 	$health_bar.value=current_health
 	if current_health <= 0:
 		self.queue_free()

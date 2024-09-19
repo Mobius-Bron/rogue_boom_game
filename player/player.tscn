@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvi1p33rdmmj5"]
+[gd_scene load_steps=12 format=3 uid="uid://bvi1p33rdmmj5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_g3aws"]
 [ext_resource type="Texture2D" uid="uid://dm6l65bdlkkps" path="res://player/炸弹人行走图4.png" id="2_ewdma"]
+[ext_resource type="Texture2D" uid="uid://cb4cb2enn0q5a" path="res://player/health_bar_under.png" id="3_gq4ob"]
+[ext_resource type="Texture2D" uid="uid://dn2dr6tjk7jfq" path="res://player/health_bar _green_ progress.png" id="4_xhjqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn88"]
 size = Vector2(14, 9)
@@ -74,15 +76,18 @@ animation = &"walk"
 frame_progress = 0.918668
 offset = Vector2(0, -12)
 
-[node name="HP" type="Label" parent="."]
-offset_left = -20.0
-offset_top = -65.0
-offset_right = 20.0
-offset_bottom = -42.0
-horizontal_alignment = 1
-
 [node name="player_hurt_area" type="Area2D" parent="."]
 
 [node name="player_c" type="CollisionShape2D" parent="player_hurt_area"]
 position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_pmvh0")
+
+[node name="health_bar" type="TextureProgressBar" parent="."]
+offset_left = -17.0
+offset_top = -65.0
+offset_right = 17.0
+offset_bottom = -28.0
+size_flags_vertical = 0
+value = 100.0
+texture_under = ExtResource("3_gq4ob")
+texture_progress = ExtResource("4_xhjqp")

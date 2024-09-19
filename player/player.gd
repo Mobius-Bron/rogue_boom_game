@@ -6,15 +6,15 @@ const SPEED = 200.0
 
 #@export var max_health:TextureProgressBar
 @export var max_health = 100
-@export var speed=400
-var screen_size
 var current_health = max_health
+@export var speed=400
 
-@onready var hpLabel = $HP
+@onready var health_bar = $health_bar
 
 func _ready():
 	$AnimatedSprite2D.play()
-	screen_size=get_viewport_rect().size
+	health_bar.value=current_health
+	health_bar.max_value=max_health
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -35,8 +35,7 @@ func _physics_process(_delta):
 			$AnimatedSprite2D.flip_h=false
 	elif velocity.x ==0 and velocity.y ==0:
 		$AnimatedSprite2D.animation="stay"
-	
-	hpLabel.text = str(int(current_health))
 
 func hurt(_atk):
 	current_health -= _atk
+	health_bar.value=current_health
