@@ -54,7 +54,7 @@ func _physics_process(_delta: float) -> void:
 	
 	HP_Label.text = str(int(hp))
 
-func hurt(atk):
+func hurt(_atk):
 	boom_and_dead()
 
 func boom_and_dead():

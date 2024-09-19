@@ -1,38 +1,38 @@
-[gd_scene load_steps=12 format=3 uid="uid://djd2td8kh8ebf"]
+[gd_scene load_steps=12 format=3 uid="uid://o06t8w7cvrl3"]
 
-[ext_resource type="Script" path="res://enemys/slim/slim.gd" id="1_wj2yn"]
-[ext_resource type="Texture2D" uid="uid://bbvn33rur40ph" path="res://enemys/slim/史莱姆_绿_王冠.png" id="2_wiayn"]
+[ext_resource type="Texture2D" uid="uid://bbvn33rur40ph" path="res://enemys/slim/史莱姆_绿_王冠.png" id="1_6v3b0"]
+[ext_resource type="Script" path="res://enemys/stone/stone.gd" id="1_mm487"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wrjw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2iggg"]
 size = Vector2(20, 11.25)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fxxxp"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_s52qi"]
 radius = 9.375
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q0dx"]
-size = Vector2(42, 36)
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6pue"]
+radius = 87.023
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cv04g"]
-atlas = ExtResource("2_wiayn")
+atlas = ExtResource("1_6v3b0")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycrlh"]
-atlas = ExtResource("2_wiayn")
+atlas = ExtResource("1_6v3b0")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pe8w7"]
-atlas = ExtResource("2_wiayn")
+atlas = ExtResource("1_6v3b0")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qpi0k"]
-atlas = ExtResource("2_wiayn")
+atlas = ExtResource("1_6v3b0")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxdj4"]
-atlas = ExtResource("2_wiayn")
+atlas = ExtResource("1_6v3b0")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gurg6"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_a2k80"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -63,20 +63,14 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="slim" type="CharacterBody2D"]
-y_sort_enabled = true
-motion_mode = 1
-wall_min_slide_angle = 0.0
-script = ExtResource("1_wj2yn")
+[node name="stone" type="CharacterBody2D"]
+script = ExtResource("1_mm487")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
-autostart = true
-
-[node name="atk_timer" type="Timer" parent="."]
 autostart = true
 
 [node name="HP" type="Label" parent="."]
@@ -91,24 +85,23 @@ horizontal_alignment = 1
 [node name="enemy_c" type="CollisionShape2D" parent="hurt_area"]
 position = Vector2(3.38813e-21, 0)
 scale = Vector2(1.6, 1.6)
-shape = SubResource("RectangleShape2D_2wrjw")
+shape = SubResource("RectangleShape2D_2iggg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.38813e-21, -2.38419e-07)
 scale = Vector2(1.6, 1.6)
-shape = SubResource("CircleShape2D_fxxxp")
+shape = SubResource("CircleShape2D_s52qi")
 
 [node name="atk_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="atk_area"]
-shape = SubResource("RectangleShape2D_3q0dx")
+shape = SubResource("CircleShape2D_b6pue")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.298039, 0.298039, 0.298039, 1)
 scale = Vector2(1.5, 1.5)
-sprite_frames = SubResource("SpriteFrames_gurg6")
+sprite_frames = SubResource("SpriteFrames_a2k80")
 animation = &"walk"
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="atk_timer" to="." method="_on_atk_timer_timeout"]
 [connection signal="area_entered" from="atk_area" to="." method="_on_atk_area_area_entered"]
 [connection signal="area_exited" from="atk_area" to="." method="_on_atk_area_area_exited"]

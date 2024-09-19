@@ -85,7 +85,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="enemy" type="CharacterBody2D"]
+[node name="magma" type="CharacterBody2D"]
 script = ExtResource("1_c7gec")
 
 [node name="wave_area" type="Area2D" parent="."]

@@ -1,13 +1,11 @@
 extends CharacterBody2D
 
-var get_player: bool = false
-
-@export var max_hp = 30
+@export var max_hp = 10
 var hp = 30
 @export var speed = 50
 @export var atk = 1
 
-var player_list = []
+var enemy_list = []
 
 @export var player: CharacterBody2D
 @onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
@@ -39,20 +37,14 @@ func _on_timer_timeout():
 	navigationAgent.target_position = player.global_position
 
 func _on_atk_area_area_entered(area):
-	if area.name == "player_hurt_area":
+	if area.name == "hurt_area":
 		var node = area.get_parent()
-		if node not in player_list:
-			player_list.append(node)
-		get_player = true
+		if node not in enemy_list:
+			enemy_list.append(node)
 
 func _on_atk_area_area_exited(area):
-	if area.name == "player_hurt_area":
+	if area.name == "hurt_area":
 		var node = area.get_parent()
-		if node in player_list:
-			player_list.erase(node)
-		get_player = false
+		if node in enemy_list:
+			enemy_list.erase(node)
 
-func _on_atk_timer_timeout():
-	if get_player:
-		for player_ in player_list:
-			player_.hurt(atk)

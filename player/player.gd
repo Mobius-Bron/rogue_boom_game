@@ -38,5 +38,5 @@ func _physics_process(_delta):
 	
 	hpLabel.text = str(int(current_health))
 
-func hurt(atk):
-	current_health -= atk
+func hurt(_atk):
+	current_health -= _atk
