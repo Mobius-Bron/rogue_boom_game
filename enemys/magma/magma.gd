@@ -12,7 +12,6 @@ var player_list = []
 
 @export var player: CharacterBody2D
 @onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
-@onready var HP_Label: Label = $HP
 @onready var anim_2d = $AnimatedSprite2D
 
 @onready var tilemap = $wave_area/TileMap
@@ -51,8 +50,6 @@ func _physics_process(_delta: float) -> void:
 			boom_and_dead()
 		else:
 			wave.look_at(player.global_position)
-	
-	HP_Label.text = str(int(hp))
 
 func hurt(_atk):
 	boom_and_dead()

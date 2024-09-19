@@ -35,7 +35,6 @@ func hurt(atk):
 		self.queue_free()
 
 func _on_timer_timeout():
-	print(player.global_position)
 	navigationAgent.target_position = player.global_position
 
 func _on_atk_area_area_entered(area):

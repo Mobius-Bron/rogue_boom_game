@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 var get_player: bool = false
 
-@export var max_hp = 30
-var hp = 30
+@export var max_health = 30
+var current_health = max_health
 @export var speed = 50
 @export var atk = 1
 
@@ -11,13 +11,14 @@ var player_list = []
 
 @export var player: CharacterBody2D
 @onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
-@onready var HP_Label: Label = $HP
 @onready var anim_2d = $AnimatedSprite2D
 
 
 func _ready():
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
+	$health_bar.value=current_health
+	$health_bar.max_value=max_health
 	
 func _physics_process(_delta: float) -> void:
 	var dir = to_local(navigationAgent.get_next_path_position()).normalized()
@@ -27,12 +28,11 @@ func _physics_process(_delta: float) -> void:
 	elif dir.x < -0.1:
 		anim_2d.flip_h = true
 	move_and_slide()
-	
-	HP_Label.text = str(int(hp))
 
 func hurt(_atk):
-	hp -= _atk
-	if hp <= 0:
+	current_health -= _atk
+	if current_health <= 0:
+		$health_bar.value=current_health
 		self.queue_free()
 
 func _on_timer_timeout():

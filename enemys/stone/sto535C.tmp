@@ -12,7 +12,7 @@ size = Vector2(20, 11.25)
 radius = 9.375
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b6pue"]
-radius = 53.0094
+radius = 88.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o3x57"]
 atlas = ExtResource("2_t7t6b")
@@ -127,11 +127,10 @@ shape = SubResource("CircleShape2D_s52qi")
 shape = SubResource("CircleShape2D_b6pue")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -21)
 scale = Vector2(3.15625, 3.15625)
 sprite_frames = SubResource("SpriteFrames_a2k80")
 animation = &"walk"
-frame_progress = 0.86426
+frame_progress = 0.17091
 
 [node name="health_bar" type="TextureProgressBar" parent="."]
 offset_left = -17.0

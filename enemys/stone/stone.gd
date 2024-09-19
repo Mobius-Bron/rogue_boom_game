@@ -1,22 +1,24 @@
 extends CharacterBody2D
 
-@export var max_hp = 20
-var hp = 30
+@export var max_health = 30
+var current_health = max_health
 @export var speed = 20
 @export var atk = 15
 
 var enemy_list = []
-var is_able
+var is_able = true
+var get_player = false
 
 @export var player: CharacterBody2D
 @onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
-@onready var HP_Label: Label = $HP
 @onready var anim_2d = $AnimatedSprite2D
 
 
 func _ready():
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
+	$health_bar.value = current_health
+	$health_bar.max_value = max_health
 
 func _physics_process(_delta: float) -> void:
 	if is_able:
@@ -28,11 +30,21 @@ func _physics_process(_delta: float) -> void:
 			anim_2d.flip_h = true
 		move_and_slide()
 		
-	HP_Label.text = str(int(hp))
+		if get_player:
+			is_able = false
+			$AnimatedSprite2D.animation = "atk"
+			await get_tree().create_timer(3).timeout
+			for i in enemy_list:
+				if i != null:
+					i.hurt(atk)
+			is_able = true
+			
+			$AnimatedSprite2D.animation = "walk"
 
 func hurt(_atk):
-	hp -= _atk
-	if hp <= 0:
+	current_health -= _atk
+	if current_health <= 0:
+		$health_bar.value = current_health
 		self.queue_free()
 
 func _on_timer_timeout():
@@ -46,6 +58,7 @@ func _on_atk_area_area_entered(area):
 	elif area.name == "player_hurt_area":
 		var node = area.get_parent()
 		if node not in enemy_list:
+			get_player = true
 			enemy_list.append(node)
 
 func _on_atk_area_area_exited(area):
@@ -56,12 +69,6 @@ func _on_atk_area_area_exited(area):
 	elif area.name == "player_hurt_area":
 		var node = area.get_parent()
 		if node in enemy_list:
+			get_player = false
 			enemy_list.erase(node)
 
-func _on_atk_timer_timeout():
-	is_able = false
-	await get_tree().create_timer(1.5).timeout
-	for i in enemy_list:
-		if i != null:
-			i.hurt(atk)
-	is_able = true
