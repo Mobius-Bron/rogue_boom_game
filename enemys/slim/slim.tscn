@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://djd2td8kh8ebf"]
 
-[ext_resource type="Script" path="res://enemys/slim.gd" id="1_wj2yn"]
-[ext_resource type="Texture2D" uid="uid://bbvn33rur40ph" path="res://enemys/史莱姆_绿_王冠.png" id="2_wiayn"]
+[ext_resource type="Script" path="res://enemys/slim/slim.gd" id="1_wj2yn"]
+[ext_resource type="Texture2D" uid="uid://bbvn33rur40ph" path="res://enemys/slim/史莱姆_绿_王冠.png" id="2_wiayn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wrjw"]
 size = Vector2(20, 11.25)

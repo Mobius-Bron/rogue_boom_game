@@ -1,0 +1,141 @@
+[gd_scene load_steps=16 format=3 uid="uid://bahvrnyebs6mn"]
+
+[ext_resource type="Script" path="res://enemys/magma/magma.gd" id="1_c7gec"]
+[ext_resource type="Texture2D" uid="uid://d3bm6jq0ga0ih" path="res://player/boom_wave_.png" id="2_8kqf4"]
+[ext_resource type="Texture2D" uid="uid://bbvn33rur40ph" path="res://enemys/slim/史莱姆_绿_王冠.png" id="2_62fe5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50gye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4fvg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_skx2r"]
+texture = ExtResource("2_8kqf4")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_uvn2g"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_skx2r")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clbrk"]
+size = Vector2(20, 11.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y0oww"]
+radius = 9.375
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv04g"]
+atlas = ExtResource("2_62fe5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycrlh"]
+atlas = ExtResource("2_62fe5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe8w7"]
+atlas = ExtResource("2_62fe5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpi0k"]
+atlas = ExtResource("2_62fe5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxdj4"]
+atlas = ExtResource("2_62fe5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5o1pe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv04g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycrlh")
+}],
+"loop": true,
+"name": &"stay",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe8w7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpi0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxdj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpi0k")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_c7gec")
+
+[node name="wave_area" type="Area2D" parent="."]
+scale = Vector2(1.6, 1.6)
+
+[node name="cx" type="CollisionShape2D" parent="wave_area"]
+shape = SubResource("RectangleShape2D_50gye")
+
+[node name="cy" type="CollisionShape2D" parent="wave_area"]
+shape = SubResource("RectangleShape2D_u4fvg")
+
+[node name="TileMap" type="TileMap" parent="wave_area"]
+position = Vector2(-10, -10)
+scale = Vector2(0.625, 0.625)
+tile_set = SubResource("TileSet_uvn2g")
+format = 2
+layer_0/z_index = 3
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="HP" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -47.0
+offset_right = 20.0
+offset_bottom = -24.0
+horizontal_alignment = 1
+
+[node name="hurt_area" type="Area2D" parent="."]
+
+[node name="enemy_c" type="CollisionShape2D" parent="hurt_area"]
+position = Vector2(3.38813e-21, 0)
+scale = Vector2(1.6, 1.6)
+shape = SubResource("RectangleShape2D_clbrk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.38813e-21, -2.38419e-07)
+scale = Vector2(1.6, 1.6)
+shape = SubResource("CircleShape2D_y0oww")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.910935, 0.012697, 5.77569e-07, 1)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_5o1pe")
+animation = &"walk"
+
+[connection signal="area_entered" from="wave_area" to="." method="_on_wave_area_area_entered"]
+[connection signal="area_exited" from="wave_area" to="." method="_on_wave_area_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

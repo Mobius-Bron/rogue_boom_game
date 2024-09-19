@@ -54,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmvh0"]
-size = Vector2(34, 27)
+size = Vector2(34, 43)
 
 [node name="player" type="CharacterBody2D"]
 motion_mode = 1
@@ -84,5 +84,5 @@ horizontal_alignment = 1
 [node name="player_hurt_area" type="Area2D" parent="."]
 
 [node name="player_c" type="CollisionShape2D" parent="player_hurt_area"]
-position = Vector2(0, -4.5)
+position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_pmvh0")
