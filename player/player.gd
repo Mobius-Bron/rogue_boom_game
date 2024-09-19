@@ -13,8 +13,8 @@ var current_health = max_health
 
 func _ready():
 	$AnimatedSprite2D.play()
-	health_bar.value=current_health
 	health_bar.max_value=max_health
+	health_bar.value=current_health
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")

@@ -2,14 +2,15 @@ extends CharacterBody2D
 
 var get_player: bool = false
 
-@export var max_health = 30
-var current_health = max_health
+@export var max_health: float = 50
+var current_health: float = max_health
 @export var speed = 50
 @export var atk = 1
 
 var player_list = []
 
 @export var player: CharacterBody2D
+@export var world: Node2D
 @onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
 @onready var anim_2d = $AnimatedSprite2D
 @onready var health_bar = $health_bar
@@ -18,9 +19,10 @@ var player_list = []
 func _ready():
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
+	current_health = max_health
 	health_bar.value=current_health
 	health_bar.max_value=max_health
-	
+
 func _physics_process(_delta: float) -> void:
 	var dir = to_local(navigationAgent.get_next_path_position()).normalized()
 	velocity = dir * speed
@@ -34,6 +36,7 @@ func hurt(_atk):
 	current_health -= atk
 	$health_bar.value=current_health
 	if current_health <= 0:
+		world.enemy_dead(self.name)
 		self.queue_free()
 
 func _on_timer_timeout():

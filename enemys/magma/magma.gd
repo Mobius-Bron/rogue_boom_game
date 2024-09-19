@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 var get_player: bool = false
 
-@export var max_hp = 30
-var hp = 30
+@export var max_health: float = 30
+var current_health: float = max_health
 @export var speed = 30
 @export var atk = 15
 
@@ -11,6 +11,7 @@ var is_able = true
 var player_list = []
 
 @export var player: CharacterBody2D
+@export var world: Node2D
 @onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
 @onready var anim_2d = $AnimatedSprite2D
 
@@ -33,6 +34,7 @@ func _ready():
 	cx.scale.x = length + length + 1
 	cy.scale.y = length + length + 1
 	length += 1
+	current_health = max_health
 	$AnimatedSprite2D.animation = "run"
 	$AnimatedSprite2D.play()
 
@@ -82,6 +84,7 @@ func boom_and_dead():
 		if i != null:
 			i.hurt(atk)
 	
+	world.enemy_dead(self.name)
 	self.queue_free()
 
 func _on_timer_timeout():
