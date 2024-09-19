@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://btwdqw4lybd0n"]
+
+[ext_resource type="Texture2D" uid="uid://dvhtub83i4w84" path="res://enemys/flame_bat/flame_bat.png" id="1_202ir"]
+[ext_resource type="Script" path="res://enemys/flame_bat/flame_bat.gd" id="1_hg3xi"]
+[ext_resource type="Texture2D" uid="uid://bysx8agdh2xvr" path="res://enemys/flame_bat/health_under.png" id="2_tgk4l"]
+[ext_resource type="Texture2D" uid="uid://c6c8qqjfu25k8" path="res://enemys/flame_bat/health_progress.png" id="3_krq2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bby73"]
+size = Vector2(31, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dod0r"]
+size = Vector2(25, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mdodr"]
+radius = 9.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vsxp"]
+atlas = ExtResource("1_202ir")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b18qu"]
+atlas = ExtResource("1_202ir")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va6ss"]
+atlas = ExtResource("1_202ir")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3xnd"]
+atlas = ExtResource("1_202ir")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r7q14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vsxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b18qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va6ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3xnd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="flame_bat" type="CharacterBody2D"]
+script = ExtResource("1_hg3xi")
+metadata/_edit_group_ = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="atk_timer" type="Timer" parent="."]
+
+[node name="atk_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atk_area"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_bby73")
+
+[node name="hurt_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_area"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_dod0r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mdodr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_r7q14")
+animation = &"walk"
+frame_progress = 0.151949
+
+[node name="health_bar" type="TextureProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -34.0
+offset_right = 19.0
+offset_bottom = 3.0
+size_flags_vertical = 0
+max_value = 30.0
+value = 30.0
+texture_under = ExtResource("2_tgk4l")
+texture_progress = ExtResource("3_krq2i")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="atk_timer" to="." method="_on_atk_timer_timeout"]
+[connection signal="area_entered" from="atk_area" to="." method="_on_atk_area_area_entered"]
+[connection signal="area_exited" from="atk_area" to="." method="_on_atk_area_area_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjwxfnp7tarek"]
+[gd_scene load_steps=14 format=3 uid="uid://bjwxfnp7tarek"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_7a0gx"]
 [ext_resource type="PackedScene" uid="uid://bvi1p33rdmmj5" path="res://player/player.tscn" id="1_yliii"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://djd2td8kh8ebf" path="res://enemys/slim/slim.tscn" id="4_amxhr"]
 [ext_resource type="PackedScene" uid="uid://o06t8w7cvrl3" path="res://enemys/stone/stone.tscn" id="5_dfups"]
 [ext_resource type="PackedScene" uid="uid://bahvrnyebs6mn" path="res://enemys/magma/magma.tscn" id="5_msoxh"]
+[ext_resource type="PackedScene" uid="uid://btwdqw4lybd0n" path="res://enemys/flame_bat/flame_bat.tscn" id="7_d7xyl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hct3n"]
 vertices = PackedVector2Array(17, 18, -17, 18, -17, -18, 17, -18)
@@ -121,3 +122,6 @@ player = NodePath("../player")
 [node name="magma2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_msoxh")]
 position = Vector2(-70, -301)
 player = NodePath("../player")
+
+[node name="flame_bat" parent="." instance=ExtResource("7_d7xyl")]
+position = Vector2(-143, 74)
