@@ -123,5 +123,6 @@ player = NodePath("../player")
 position = Vector2(-70, -301)
 player = NodePath("../player")
 
-[node name="flame_bat" parent="." instance=ExtResource("7_d7xyl")]
+[node name="flame_bat" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_d7xyl")]
 position = Vector2(-143, 74)
+player = NodePath("../player")

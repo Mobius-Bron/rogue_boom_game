@@ -52,12 +52,14 @@ animations = [{
 }]
 
 [node name="flame_bat" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_hg3xi")
-metadata/_edit_group_ = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="atk_timer" type="Timer" parent="."]
 

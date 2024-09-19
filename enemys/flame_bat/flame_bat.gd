@@ -23,9 +23,9 @@ func _physics_process(_delta: float) -> void:
 	var dir = to_local(navigationAgent.get_next_path_position()).normalized()
 	velocity = dir * speed
 	if dir.x > 0.1:
-		AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.flip_h = true
 	elif dir.x < -0.1:
-		AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.flip_h = false
 	move_and_slide()
 
 func hurt(atk):
@@ -35,6 +35,7 @@ func hurt(atk):
 		self.queue_free()
 
 func _on_timer_timeout():
+	print(player.global_position)
 	navigationAgent.target_position = player.global_position
 
 func _on_atk_area_area_entered(area):
