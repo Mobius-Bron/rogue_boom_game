@@ -48,7 +48,6 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 	
 		if (self.position - player.global_position).length() <= 160:
-			is_able = false
 			await get_tree().create_timer(1).timeout
 			boom_and_dead()
 		else:
@@ -60,6 +59,7 @@ func hurt(atk):
 	boom_and_dead()
 
 func boom_and_dead():
+	is_able = false
 	for i in wave_list:
 		var pos = Vector2i(0, 0)
 		tilemap.set_cell(layer, pos, 0, Vector2i(i, 1))
