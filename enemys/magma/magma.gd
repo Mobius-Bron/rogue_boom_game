@@ -4,7 +4,7 @@ var get_player: bool = false
 
 @export var max_hp = 30
 var hp = 30
-@export var speed = 50
+@export var speed = 30
 @export var atk = 15
 
 var is_able = true
@@ -23,7 +23,7 @@ var player_list = []
 
 var layer: int = 0
 @export var length: int = 10
-@export var boom_time = 3
+@export var boom_time = 1
 
 var wave_list = [2,0,1,2,3]
 var nextTargets = []
@@ -48,7 +48,6 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 	
 		if (self.position - player.global_position).length() <= 160:
-			await get_tree().create_timer(1).timeout
 			boom_and_dead()
 		else:
 			wave.look_at(player.global_position)
@@ -60,6 +59,7 @@ func hurt(atk):
 
 func boom_and_dead():
 	is_able = false
+	await get_tree().create_timer(boom_time).timeout
 	for i in wave_list:
 		var pos = Vector2i(0, 0)
 		tilemap.set_cell(layer, pos, 0, Vector2i(i, 1))
