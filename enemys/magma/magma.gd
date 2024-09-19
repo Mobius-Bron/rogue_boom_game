@@ -92,17 +92,14 @@ func _on_timer_timeout():
 func _on_wave_area_area_entered(area):
 	if area.name == "boom_area":
 		var node = area.get_parent()
-		print(node.name)
 		if node != self:
 			nextTargets.append(node)
 	elif area.name == "hurt_area":
 		var node = area.get_parent()
-		print(node.name)
 		if node not in enemyList:
 			enemyList.append(node)
 	elif area.name == "player_hurt_area":
 		var node = area.get_parent()
-		print(node.name)
 		if node not in enemyList:
 			enemyList.append(node)
 
