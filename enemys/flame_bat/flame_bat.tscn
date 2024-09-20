@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://btwdqw4lybd0n"]
+[gd_scene load_steps=14 format=3 uid="uid://btwdqw4lybd0n"]
 
 [ext_resource type="Texture2D" uid="uid://dvhtub83i4w84" path="res://enemys/flame_bat/flame_bat.png" id="1_202ir"]
 [ext_resource type="Script" path="res://enemys/flame_bat/flame_bat.gd" id="1_hg3xi"]
@@ -51,12 +51,14 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_f34ru"]
+radius = 317.208
+
 [node name="flame_bat" type="CharacterBody2D"]
 position = Vector2(-2, 3)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_hg3xi")
-metadata/_edit_group_ = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
@@ -97,7 +99,21 @@ value = 30.0
 texture_under = ExtResource("3_vbr6l")
 texture_progress = ExtResource("4_3qsfn")
 
+[node name="shoot_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="shoot_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shoot_area"]
+shape = SubResource("CircleShape2D_f34ru")
+
+[node name="shoot_position" type="Marker2D" parent="."]
+position = Vector2(-17, 3)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="atk_timer" to="." method="_on_atk_timer_timeout"]
 [connection signal="area_entered" from="atk_area" to="." method="_on_atk_area_area_entered"]
 [connection signal="area_exited" from="atk_area" to="." method="_on_atk_area_area_exited"]
+[connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="area_entered" from="shoot_area" to="." method="_on_shoot_area_area_entered"]
+[connection signal="area_exited" from="shoot_area" to="." method="_on_shoot_area_area_exited"]

@@ -1,21 +1,22 @@
 extends CharacterBody2D
 
 var get_player: bool = false
-
+var player_list = []
+var bullet_shoot_time=2
+var bullet_speed=1000
+var bullet_hurt=10
+var attack_player=[]
 @export var max_health: float = 15
-var current_health: float = max_health
+@export var current_health: float = max_health
 @export var speed = 50
 @export var atk = 1
-
-var player_list = []
-
 @export var player: CharacterBody2D
 @export var world: Node2D
 @onready var navigationAgent: NavigationAgent2D = $NavigationAgent2D
+@onready var bullet=preload("res://enemys/flame_bat/bullet.tscn")
 
 func _ready():
-	$AnimatedSprite2D.animation = "walk"
-	$AnimatedSprite2D.play()
+	$AnimatedSprite2D.play("walk")
 	current_health = max_health
 	$health_bar.value=current_health
 	$health_bar.max_value=max_health
@@ -58,5 +59,15 @@ func _on_atk_timer_timeout():
 		for player in player_list:
 			player.hurt(atk)
 
+func _on_shoot_timer_timeout():
+	bullet.position=$shoot_position.global_position.normalized()
+	bullet.dir=player.global_position.normalized()
+	get_tree().root.add_child(bullet)
 
-
+func _on_shoot_area_area_entered(area):
+	if area.name == "player_hurt_area" :
+		$shoot_timer.start()
+		
+func _on_shoot_area_area_exited(area):
+	if area.name == "player_hurt_area" :
+		$shoot_timer.stop()
