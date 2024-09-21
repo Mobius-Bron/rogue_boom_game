@@ -45,7 +45,7 @@ func _physics_process(_delta: float) -> void:
 			$AnimatedSprite2D.animation = "walk"
 
 func hurt(_atk):
-	current_health -= atk
+	current_health -= _atk
 	health_bar.value=current_health
 	if current_health <= 0:
 		world.enemy_dead(self.name)

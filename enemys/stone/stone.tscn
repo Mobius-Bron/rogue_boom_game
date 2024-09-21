@@ -139,8 +139,6 @@ offset_top = -58.0
 offset_right = 17.0
 offset_bottom = -21.0
 size_flags_vertical = 0
-max_value = 60.0
-value = 30.0
 texture_under = ExtResource("3_s8g2c")
 texture_progress = ExtResource("4_ethhh")
 
