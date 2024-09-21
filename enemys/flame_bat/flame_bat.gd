@@ -61,8 +61,8 @@ func _on_atk_timer_timeout():
 
 func _on_shoot_timer_timeout():
 	var bullet_new = bullet.instantiate()
-	bullet_new.position=$shoot_position.global_position.normalized()
-	bullet_new.dir=player.global_position.normalized()
+	bullet_new.position=$shoot_position.global_position
+	bullet_new.dir=(player.global_position - self.global_position).normalized()
 	get_tree().root.add_child(bullet_new)
 
 func _on_shoot_area_area_entered(area):
