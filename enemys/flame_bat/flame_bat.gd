@@ -29,6 +29,7 @@ func _physics_process(_delta: float) -> void:
 	elif dir.x < -0.1:
 		$AnimatedSprite2D.flip_h = false
 	move_and_slide()
+	$shoot_node.look_at(player.global_position)
 
 func hurt(atk):
 	current_health -= atk
@@ -40,29 +41,13 @@ func hurt(atk):
 func _on_timer_timeout():
 	navigationAgent.target_position = player.global_position
 
-func _on_atk_area_area_entered(area):
-	if area.name == "player_hurt_area":
-		var node = area.get_parent()
-		if node not in player_list:
-			player_list.append(node)
-		get_player = true
-
-func _on_atk_area_area_exited(area):
-	if area.name == "player_hurt_area":
-		var node = area.get_parent()
-		if node in player_list:
-			player_list.erase(node)
-		get_player = false
-
-func _on_atk_timer_timeout():
-	if get_player:
-		for player in player_list:
-			player.hurt(atk)
-
 func _on_shoot_timer_timeout():
 	var bullet_new = bullet.instantiate()
-	bullet_new.position=$shoot_position.global_position
-	bullet_new.dir=(player.global_position - self.global_position).normalized()
+	var bullet_dir =(player.global_position - self.global_position).normalized()
+	bullet_new.position=$shoot_node/shoot_position.global_position
+	bullet_new.dir = bullet_dir
+	bullet_new.rot = $shoot_node.rotation
+	bullet_new.parent_name = self.name
 	get_tree().root.add_child(bullet_new)
 
 func _on_shoot_area_area_entered(area):
