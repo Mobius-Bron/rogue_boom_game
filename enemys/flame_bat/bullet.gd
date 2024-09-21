@@ -17,4 +17,5 @@ func _process(_delta):
 func _on_area_2d_area_entered(area):
 	if area.name == "hurt_area" or "player_hurt_area":
 		var node = area.get_parent()
-		node.hurt(hurt)
+		if node != null and node != self:
+			node.hurt(hurt)
