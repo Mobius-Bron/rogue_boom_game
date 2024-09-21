@@ -6,6 +6,8 @@ var hurt=10
 
 func _ready():
 	$AnimatedSprite2D.play("shoot")
+	await get_tree().create_timer(15).timeout
+	queue_free()
 
 func _process(_delta):
 	velocity=dir*speed

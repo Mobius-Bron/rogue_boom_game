@@ -60,9 +60,10 @@ func _on_atk_timer_timeout():
 			player.hurt(atk)
 
 func _on_shoot_timer_timeout():
-	bullet.position=$shoot_position.global_position.normalized()
-	bullet.dir=player.global_position.normalized()
-	get_tree().root.add_child(bullet)
+	var bullet_new = bullet.instantiate()
+	bullet_new.position=$shoot_position.global_position.normalized()
+	bullet_new.dir=player.global_position.normalized()
+	get_tree().root.add_child(bullet_new)
 
 func _on_shoot_area_area_entered(area):
 	if area.name == "player_hurt_area" :
