@@ -10,28 +10,29 @@ var flame_bat = preload("res://enemys/flame_bat/flame_bat.tscn")
 #玩家属性与当前游戏属性
 @export var player:CharacterBody2D
 var hard #难度
-var _boom_length: int = 3 #炸弹长度
+var _boom_length: int = 10 #炸弹长度
 var _boom_atk: float = 1 #炸弹伤害
 var _boom_num: int = 3 #炸弹伤害
 var _enemy_list = [] #敌人列表
-var _enemy_turns: int = 0 #敌人波次
+var _enemy_turns: int = 20 #敌人波次
+var score #分数
 
 #怪物属性
 var _slim_hp: float = 5
 var _slim_atk: float = 1
-var _slim_num: int = 10
+var _slim_num: int = 20
 
 var _stone_hp: float = 75
 var _stone_atk: float = 15
-var _stone_num: int = 5
+var _stone_num: int = 20
 
 var _magma_hp: float = 1
 var _magma_atk: float = 15
-var _magma_num: int = 5
+var _magma_num: int = 20
 
 var _flame_bat_hp: float = 10
 var _flame_bat_atk: float = 5
-var _flame_bat_num: int = 5
+var _flame_bat_num: int = 25
 
 
 # Called when the node enters the scene tree for the first time.
@@ -78,3 +79,21 @@ func add_enemy(enemy_type, enemy_num, enemy_hp, enemy_atk, enemy_name):
 		new_enemy_.global_position = new_position
 		_enemy_list.append(new_enemy_.name)
 		add_child(new_enemy_)
+
+func _on_canvas_layer_start_game():
+	pass # Replace with function body.
+
+func new_game():
+	score=0
+	$player.start($StartPosition.position)
+	$StartTimer.start()
+	$HUD.update_score(score)
+	$HUD.show_message("准备")
+	get_tree().call_group("mobs","queue_free")
+
+func _on_score_timer_timeout():
+	score +=1
+	$HUD.update_score(score)
+
+func _on_start_timer_timeout():
+	$Score_Timer.start()

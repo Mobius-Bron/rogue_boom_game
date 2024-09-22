@@ -39,3 +39,8 @@ func _physics_process(_delta):
 func hurt(_atk):
 	current_health -= _atk
 	health_bar.value=current_health
+	
+func start(pos):
+	position=pos
+	show()
+	$CollisionShape2D.disabled=false

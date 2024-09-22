@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bseqddw3xg50v" path="res://enemys/stone/health_bar - progress.png" id="4_ethhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iggg"]
-size = Vector2(20, 11.25)
+size = Vector2(48.75, 39.375)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s52qi"]
 radius = 9.375
@@ -112,7 +112,7 @@ autostart = true
 [node name="hurt_area" type="Area2D" parent="."]
 
 [node name="enemy_c" type="CollisionShape2D" parent="hurt_area"]
-position = Vector2(3.38813e-21, 0)
+position = Vector2(-1.90735e-06, -11.5)
 scale = Vector2(1.6, 1.6)
 shape = SubResource("RectangleShape2D_2iggg")
 

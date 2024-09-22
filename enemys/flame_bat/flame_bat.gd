@@ -23,7 +23,10 @@ func _ready():
 
 func _physics_process(_delta: float) -> void:
 	var dir = to_local(navigationAgent.get_next_path_position()).normalized()
-	velocity = dir * speed
+	if (player.global_position - self.global_position).length() >= 240:
+		velocity = dir * speed
+	else :
+		velocity =Vector2.ZERO
 	if dir.x > 0.1:
 		$AnimatedSprite2D.flip_h = true
 	elif dir.x < -0.1:

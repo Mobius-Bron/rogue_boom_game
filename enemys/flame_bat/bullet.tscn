@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6m5gu"]
-size = Vector2(14.2857, 22.8571)
+size = Vector2(14.2857, 8.5714)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w8pdm"]
 radius = 7.14286
@@ -41,8 +41,7 @@ frame_progress = 0.752604
 scale = Vector2(1.42857, 1.42857)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
-position = Vector2(-7.66345e-07, 1.70299e-07)
-scale = Vector2(1, 1)
+position = Vector2(-7.66351e-07, -7.14285)
 shape = SubResource("RectangleShape2D_6m5gu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
