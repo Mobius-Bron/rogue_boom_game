@@ -20,9 +20,12 @@ var player_list = []
 
 @onready var cx = $wave_area/cx
 @onready var cy = $wave_area/cy
+@onready var colorx = $wave_area/cx/ColorX
+@onready var colory = $wave_area/cy/ColorY
 
 var layer: int = 0
 @export var length: int = 10
+var length_ = length + length + 1
 @export var boom_time = 1
 
 var wave_list = [2,0,1,2,3]
@@ -31,8 +34,10 @@ var enemyList = []
 
 
 func _ready():
-	cx.scale.x = length + length + 1
-	cy.scale.y = length + length + 1
+	cx.scale.x = length_
+	cy.scale.y = length_
+	colorx.scale.x = 0
+	colory.scale.y = 0
 	length += 1
 	current_health = max_health
 	$AnimatedSprite2D.animation = "run"
@@ -58,6 +63,8 @@ func hurt(_atk):
 
 func boom_and_dead():
 	is_able = false
+	colorx.scale.x = 1
+	colory.scale.y = 1
 	$AnimatedSprite2D.animation = "boom"
 	await get_tree().create_timer(boom_time).timeout
 	for i in wave_list:
@@ -78,6 +85,7 @@ func boom_and_dead():
 	for i in nextTargets:
 		if i != null:
 			if i.isable:
+				i.atk += atk
 				i.boom_()
 	
 	for i in enemyList:

@@ -70,8 +70,22 @@ scale = Vector2(1.6, 1.6)
 [node name="cx" type="CollisionShape2D" parent="wave_area"]
 shape = SubResource("RectangleShape2D_f5jkh")
 
+[node name="ColorRect" type="ColorRect" parent="wave_area/cx"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0.482353, 0, 0.392157)
+
 [node name="cy" type="CollisionShape2D" parent="wave_area"]
 shape = SubResource("RectangleShape2D_j242p")
+
+[node name="ColorRect" type="ColorRect" parent="wave_area/cy"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0.482353, 0, 0.392157)
 
 [node name="boom_area" type="Area2D" parent="."]
 

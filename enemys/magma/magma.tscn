@@ -114,8 +114,22 @@ scale = Vector2(1.6, 1.6)
 [node name="cx" type="CollisionShape2D" parent="wave_area"]
 shape = SubResource("RectangleShape2D_50gye")
 
+[node name="ColorX" type="ColorRect" parent="wave_area/cx"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0.482353, 0, 0.392157)
+
 [node name="cy" type="CollisionShape2D" parent="wave_area"]
 shape = SubResource("RectangleShape2D_u4fvg")
+
+[node name="ColorY" type="ColorRect" parent="wave_area/cy"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0.482353, 0, 0.392157)
 
 [node name="TileMap" type="TileMap" parent="wave_area"]
 position = Vector2(-10, -10)
