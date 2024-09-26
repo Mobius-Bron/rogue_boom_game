@@ -34,6 +34,7 @@ var _flame_bat_hp: float = 10
 var _flame_bat_atk: float = 5
 var _flame_bat_num: int = 25
 
+var wave
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
