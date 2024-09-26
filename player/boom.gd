@@ -2,7 +2,6 @@ extends Node2D
 
 var isable = true
 var atk = 1
-
 @onready var tilemap = $TileMap
 @onready var timeLabel = $Label
 
@@ -12,6 +11,7 @@ var atk = 1
 var layer: int = 0
 @export var length: int = 3
 @export var boom_time = 3
+@export var player:CharacterBody2D
 
 var wave_list = [2,0,1,2,3]
 var nextTargets = []
@@ -27,7 +27,6 @@ func _ready():
 func _process(_delta):
 	timeLabel.text = str(int(boom_time)+1)
 	boom_time -= _delta
-	pass
 		
 func boom_():
 	if not isable:
@@ -87,3 +86,4 @@ func _on_wave_area_area_exited(area):
 		var node = area.get_parent()
 		if node in enemyList:
 			enemyList.erase(node)
+	

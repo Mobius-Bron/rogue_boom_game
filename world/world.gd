@@ -43,9 +43,11 @@ func _ready():
 func _process(_delta):
 	if len(_enemy_list) == 0:
 		new_turn()
+	if player.current_health<=0:
+		game_over()
 
 func _input(_event):
-	if Input.is_action_just_pressed("click_l"):
+	if Input.is_action_just_pressed("click_l") and  player.current_health>0:
 		var new_ = boom.instantiate()
 		new_.length = _boom_length
 		new_.atk = _boom_atk
@@ -80,16 +82,13 @@ func add_enemy(enemy_type, enemy_num, enemy_hp, enemy_atk, enemy_name):
 		_enemy_list.append(new_enemy_.name)
 		add_child(new_enemy_)
 
-func _on_canvas_layer_start_game():
-	pass # Replace with function body.
-
 func new_game():
 	score=0
-	$player.start($StartPosition.position)
-	$StartTimer.start()
+	$player.start($Start_Position.position)
+	$Start_Timer.start()
 	$HUD.update_score(score)
-	$HUD.show_message("准备")
-	get_tree().call_group("mobs","queue_free")
+	$HUD.show_Title_Label("准备")
+	get_tree().call_group("enemys","queue_free")
 
 func _on_score_timer_timeout():
 	score +=1
@@ -97,3 +96,9 @@ func _on_score_timer_timeout():
 
 func _on_start_timer_timeout():
 	$Score_Timer.start()
+
+func game_over():
+	$Score_Timer.stop()
+	$HUD.show_game_over()	
+	player.show_game_over()	
+

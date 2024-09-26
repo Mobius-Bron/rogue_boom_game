@@ -2,20 +2,22 @@ extends CanvasLayer
 
 signal  start_game
 # Called when the node enters the scene tree for the first time.
+@export var player:CharacterBody2D
+
 func _ready():
-	pass # Replace with function body.
-
-func _process(delta):
 	pass
+func _process(delta):
+	$Health_Bar.value=player.current_health
+	$Health_Label.text = str(player.current_health)
 
-func show_message(text):
+func show_Title_Label(text):
 	$Title_Label.text = text
 	$Title_Label.show()
 	$Title_Label_Timer.start()
 
 func show_game_over():
-	show_message("游戏结束")
-	await $Title_Label_Timer.timeout
+	show_Title_Label("游戏结束")
+	await get_tree().create_timer(2.0).timeout
 	
 	$Title_Label.text = "炸弹人rogue"
 	$Title_Label.show()
