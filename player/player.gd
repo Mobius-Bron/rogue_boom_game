@@ -16,24 +16,22 @@ func _ready():
 	health_bar.value=current_health
 	
 func _physics_process(_delta):
-	if current_health>0:
-		move()
-	
-	if velocity.x !=0 or velocity.y !=0:
-		
+	if velocity.x !=0 or velocity.y !=0:	
 		$AnimatedSprite2D.flip_v=false
-		if velocity.x > 0:
-			$AnimatedSprite2D.flip_h=true
-		elif velocity.x < 0:
-			$AnimatedSprite2D.flip_h=false
+	if velocity.x > 0:
+		$AnimatedSprite2D.flip_h=true
+	elif velocity.x < 0:
+		$AnimatedSprite2D.flip_h=false
 	elif velocity.x ==0 and velocity.y ==0:
 		$AnimatedSprite2D.animation="stay"
+	#if current_health>0:
+	move()
 
 func hurt(_atk):
 	if current_health>0:	
 		current_health -= _atk
 	else:
-		current_health=0
+		current_health=-1
 	health_bar.value=current_health
 
 func start(pos):
@@ -49,9 +47,10 @@ func move():
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if direction:
 		velocity = direction * SPEED
+		$AnimatedSprite2D.animation="walk"
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+		$AnimatedSprite2D.animation="stay"
 
 	move_and_slide()
-	

@@ -85,7 +85,7 @@ shape = SubResource("RectangleShape2D_bfn88")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_ajff7")
-animation = &"dead"
+animation = &"walk"
 offset = Vector2(0, -12)
 
 [node name="player_hurt_area" type="Area2D" parent="."]

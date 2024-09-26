@@ -34,21 +34,21 @@ var _flame_bat_hp: float = 10
 var _flame_bat_atk: float = 5
 var _flame_bat_num: int = 25
 
-var wave
+var Wave_Number
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	new_turn()
+	new_wave()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if len(_enemy_list) == 0:
-		new_turn()
+	if $HUD._on_select_1_pressed():
+		new_wave()
 	if player.current_health<=0:
 		game_over()
 
 func _input(_event):
-	if Input.is_action_just_pressed("click_l") and  player.current_health>0:
+	if Input.is_action_just_pressed("click_l"): #and  player.current_health>0
 		var new_ = boom.instantiate()
 		new_.length = _boom_length
 		new_.atk = _boom_atk
@@ -59,8 +59,9 @@ func enemy_dead(name):
 	if name in _enemy_list:
 		_enemy_list.erase(name)
 
-func new_turn():
+func new_wave():
 	_enemy_turns += 1
+	$HUD.Wave_Number +=1
 	add_enemy(slim, _slim_num, _slim_hp, _slim_atk, "slim")
 	add_enemy(stone, _stone_num, _stone_hp, _stone_atk, "stone")
 	add_enemy(magma, _magma_num, _magma_hp, _magma_atk, "magma")
@@ -99,7 +100,7 @@ func _on_start_timer_timeout():
 	$Score_Timer.start()
 
 func game_over():
-	$Score_Timer.stop()
-	$HUD.show_game_over()	
-	player.show_game_over()	
-
+	#$Score_Timer.stop()
+	#$HUD.show_game_over()	
+	#player.show_game_over()	
+	pass
