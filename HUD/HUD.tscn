@@ -97,6 +97,8 @@ offset_top = -229.0
 offset_right = 249.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("2_3bxhs")
 theme_override_font_sizes/font_size = 75
 text = "开始"
@@ -105,14 +107,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Select_Screen" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Select1" type="Button" parent="Select_Screen"]
-layout_mode = 0
+[node name="Select1" type="Button" parent="."]
 offset_left = 30.0
 offset_top = 142.0
 offset_right = 380.0
@@ -121,8 +116,7 @@ theme_override_fonts/font = ExtResource("2_3bxhs")
 theme_override_font_sizes/font_size = 20
 text = "one"
 
-[node name="Select2" type="Button" parent="Select_Screen"]
-layout_mode = 0
+[node name="Select2" type="Button" parent="."]
 offset_left = 414.0
 offset_top = 142.0
 offset_right = 764.0
@@ -131,8 +125,7 @@ theme_override_fonts/font = ExtResource("2_3bxhs")
 theme_override_font_sizes/font_size = 20
 text = "two"
 
-[node name="Select3" type="Button" parent="Select_Screen"]
-layout_mode = 0
+[node name="Select3" type="Button" parent="."]
 offset_left = 783.0
 offset_top = 142.0
 offset_right = 1133.0
@@ -143,6 +136,6 @@ text = "thr"
 
 [connection signal="timeout" from="Title_Label_Timer" to="." method="_on_title_label_timer_timeout"]
 [connection signal="pressed" from="Start_button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Select_Screen/Select1" to="." method="_on_select_1_pressed"]
-[connection signal="pressed" from="Select_Screen/Select2" to="." method="_on_select_2_pressed"]
-[connection signal="pressed" from="Select_Screen/Select3" to="." method="_on_select_3_pressed"]
+[connection signal="pressed" from="Select1" to="." method="_on_select_1_pressed"]
+[connection signal="pressed" from="Select2" to="." method="_on_select_2_pressed"]
+[connection signal="pressed" from="Select3" to="." method="_on_select_3_pressed"]

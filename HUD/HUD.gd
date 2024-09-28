@@ -1,12 +1,15 @@
 extends CanvasLayer
 
 signal  start_game
+signal  select
 # Called when the node enters the scene tree for the first time.
 @export var player:CharacterBody2D
 var Wave_Number=0
 
 func _ready():
-	pass
+	$Select1.hide()
+	$Select2.hide()
+	$Select3.hide()
 func _process(delta):
 	$Health_Bar.value=player.current_health
 	$Health_Label.text = str(player.current_health)
@@ -37,16 +40,19 @@ func _on_title_label_timer_timeout():
 	$Title_Label.hide()
 
 func _on_select_1_pressed():
-	$Select_Screen/Select1.hide()
-	$Select_Screen/Select2.hide()
-	$Select_Screen/Select3.hide()
+	$Select1.hide()
+	$Select2.hide()
+	$Select3.hide()
+	select.emit()
 	
 func _on_select_2_pressed():
-	$Select_Screen/Select1.hide()
-	$Select_Screen/Select2.hide()
-	$Select_Screen/Select3.hide()
-
+	$Select1.hide()
+	$Select2.hide()
+	$Select3.hide()
+	select.emit()
+	
 func _on_select_3_pressed():
-	$Select_Screen/Select1.hide()
-	$Select_Screen/Select2.hide()
-	$Select_Screen/Select3.hide()
+	$Select1.hide()
+	$Select2.hide()
+	$Select3.hide()
+	select.emit()

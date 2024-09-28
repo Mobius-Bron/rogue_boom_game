@@ -97,9 +97,13 @@ player = NodePath("../player")
 
 [node name="Start_Timer" type="Timer" parent="."]
 
+[node name="Mob_Timer" type="Timer" parent="."]
+
 [node name="Start_Position" type="Marker2D" parent="."]
 position = Vector2(228, 213)
 
+[connection signal="select" from="HUD" to="." method="_on_hud_select"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="timeout" from="Score_Timer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="Start_Timer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="Mob_Timer" to="." method="_on_mob_timer_timeout"]
