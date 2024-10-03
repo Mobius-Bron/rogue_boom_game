@@ -18,12 +18,12 @@ var _enemy_list = [] #敌人列表
 var _enemy_waves: int = 20 #敌人波次
 var score=0 #分数
 var Wave_Number #波数
-var text1=0 #rogue词条字典的随机文本
-var text2=0 #rogue词条字典的随机文本
-var text3=0 #rogue词条字典的随机文本
 var key1=0 #rogue词条字典的随机key
 var key2=0 #rogue词条字典的随机key
 var key3=0 #rogue词条字典的随机key
+var key4=0 #rogue词条字典的随机key
+var key5=0 #rogue词条字典的随机key
+var key6=0 #rogue词条字典的随机key
 var select=0 #rogue词条选择后判断使用的变量
 #怪物属性
 var _slim_hp: float = 5
@@ -46,24 +46,24 @@ var _flame_bat_num: int = 0
 var rogue_dict ={
 	0:"炸弹伤害+1",
 	1:"炸弹长度+1",
-	2:"玩家最大生命值\n加10",
-	3:"玩家炸弹数量\n+1",
-	4:"玩家移速+5",
+	2:"玩家\n最大生命值+10",
+	3:"玩家\n炸弹数量+1",
+	4:"玩家\n移速+5",
 	
-	5:"史莱姆数量+1",
-	6:"史莱姆伤害+1",
-	7:"史莱姆生命值+5",
+	5:"史莱姆\n数量+1",
+	6:"史莱姆\n伤害+1",
+	7:"史莱姆\n生命值+5",
 	
-	8:"蝙蝠数量+1",
-	9:"蝙蝠伤害+2",
-	10:"蝙蝠生命值+1",
+	8:"蝙蝠\n数量+1",
+	9:"蝙蝠\n伤害+2",
+	10:"蝙蝠\n生命值+1",
 	
-	11:"石头先辈数量+1",
-	12:"石头先辈伤害+5",
-	13:"石头先辈生命值+10",
+	11:"石头先辈\n数量+1",
+	12:"石头先辈\n伤害+5",
+	13:"石头先辈\n生命值+10",
 	
-	14:"滚动披萨数量+1",
-	15:"滚动披萨伤害+3",
+	14:"滚动披萨\n数量+1",
+	15:"滚动披萨\n伤害+3",
 }
 
 func _ready():
@@ -133,7 +133,7 @@ func new_game():
 	new_wave()
 
 func _on_score_timer_timeout():
-	score +=1
+	score +=0.05
 	$HUD.update_score(score)
 
 func _on_start_timer_timeout():
@@ -145,42 +145,43 @@ func game_over():
 	player.show_game_over()	
 
 func _Select_Screen():
-	if len(_enemy_list)==0 and score>0:
-		$HUD/Select1.text=text1
-		$HUD/Select2.text=text2
-		$HUD/Select3.text=text3
+	if len(_enemy_list)==0 and score>0 and 	$HUD.select_x == 0:
+		$HUD.select_x +=1
+		$HUD/Select1.text=rogue_dict[key1]
+		$HUD/Select2.text=rogue_dict[key2]
+		$HUD/Select3.text=rogue_dict[key3]
+		$HUD/Select4.text=rogue_dict[key4]
+		$HUD/Select5.text=rogue_dict[key5]
+		$HUD/Select6.text=rogue_dict[key6]
 		await get_tree().create_timer(1.0).timeout
 		$HUD/Select1.show()
 		$HUD/Select2.show()
 		$HUD/Select3.show()
 	if len(_enemy_list)!=0:
-		key1=randi_range(0,0)
-		key2=randi_range(4,4)
+		key1=randi_range(0,4)
+		key2=randi_range(0,4)
 		key3=randi_range(0,4)
-		text1=rogue_dict[key1]
-		text2=rogue_dict[key2]
-		text3=rogue_dict[key3]
+		key4=randi_range(5,15)
+		key5=randi_range(5,15)
+		key6=randi_range(5,15)
 		$HUD/Select1.hide()
 		$HUD/Select2.hide()
 		$HUD/Select3.hide()
+		$HUD/Select4.hide()
+		$HUD/Select5.hide()
+		$HUD/Select6.hide()
 		
 func _on_hud_select_1():
 	select=key1
 	level_up()
-	await get_tree().create_timer(1.0).timeout
-	new_wave()
 
 func _on_hud_select_2():
 	select=key2
 	level_up()
-	await get_tree().create_timer(1.0).timeout
-	new_wave()
 
 func _on_hud_select_3():
 	select=key3
 	level_up()
-	await get_tree().create_timer(1.0).timeout
-	new_wave()
 
 #rogue选择后的player和enemy的升级
 func level_up():
@@ -219,3 +220,23 @@ func level_up():
 	if select==15:
 		_magma_atk +=3
 
+func _on_hud_select_4():
+	select=key4
+	level_up()
+	await get_tree().create_timer(1.0).timeout
+	new_wave()
+	$HUD.select_x -=1	
+
+func _on_hud_select_5():
+	select=key5
+	level_up()
+	await get_tree().create_timer(1.0).timeout
+	new_wave()
+	$HUD.select_x -=1	
+
+func _on_hud_select_6():
+	select=key6
+	level_up()
+	await get_tree().create_timer(1.0).timeout
+	new_wave()
+	$HUD.select_x -=1	
