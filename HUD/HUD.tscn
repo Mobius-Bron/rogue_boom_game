@@ -1,10 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://n3ool22g32eh"]
+[gd_scene load_steps=9 format=3 uid="uid://n3ool22g32eh"]
 
 [ext_resource type="Script" path="res://HUD/HUD.gd" id="1_f7sk4"]
 [ext_resource type="FontFile" uid="uid://coloo8nouqxhv" path="res://fonts/Xolonium-Regular.ttf" id="2_3bxhs"]
 [ext_resource type="Texture2D" uid="uid://dc73gf52qurkm" path="res://HUD/Start_Button.png" id="3_xddrv"]
 [ext_resource type="Texture2D" uid="uid://cb4cb2enn0q5a" path="res://player/health_bar_under.png" id="4_2xrtq"]
 [ext_resource type="Texture2D" uid="uid://dn2dr6tjk7jfq" path="res://player/health_bar _green_ progress.png" id="5_f14qr"]
+[ext_resource type="Texture2D" uid="uid://d4dwuu528nl6w" path="res://player/boom_planB_.png" id="6_mxwf2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlmyc"]
+atlas = ExtResource("6_mxwf2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6fx68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlmyc")
+}],
+"loop": true,
+"name": &"boom",
+"speed": 5.0
+}]
 
 [node name="HUd" type="CanvasLayer"]
 script = ExtResource("1_f7sk4")
@@ -92,9 +108,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -249.0
-offset_top = -229.0
-offset_right = 249.0
+offset_left = -100.5
+offset_top = -121.0
+offset_right = 100.5
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -138,8 +154,48 @@ theme_override_fonts/font = ExtResource("2_3bxhs")
 theme_override_font_sizes/font_size = 50
 text = "thr"
 
+[node name="Boom_Num" type="Label" parent="."]
+offset_left = 250.0
+offset_top = 86.0
+offset_right = 333.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("2_3bxhs")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(245, 115)
+scale = Vector2(2.1875, 2.0625)
+sprite_frames = SubResource("SpriteFrames_6fx68")
+animation = &"boom"
+
+[node name="Pause_button" type="Button" parent="."]
+process_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = -157.5
+offset_right = 268.0
+offset_bottom = 157.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_3bxhs")
+theme_override_font_sizes/font_size = 200
+text = "继续"
+icon = ExtResource("3_xddrv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="timeout" from="Title_Label_Timer" to="." method="_on_title_label_timer_timeout"]
 [connection signal="pressed" from="Start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Select1" to="." method="_on_select_1_pressed"]
 [connection signal="pressed" from="Select2" to="." method="_on_select_2_pressed"]
 [connection signal="pressed" from="Select3" to="." method="_on_select_3_pressed"]
+[connection signal="pressed" from="Pause_button" to="." method="_on_pause_button_pressed"]

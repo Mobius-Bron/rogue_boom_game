@@ -12,8 +12,8 @@ var flame_bat = preload("res://enemys/flame_bat/flame_bat.tscn")
 var hard #难度
 var _boom_length: int = 2 #炸弹长度
 var _boom_atk: float = 1 #炸弹伤害
-var _boom_num: int = 0 #炸弹数量
 var _boom_max_num: int = 3 #炸弹最大数量
+var _boom_num: int = _boom_max_num #炸弹数量
 var _enemy_list = [] #敌人列表
 var _enemy_waves: int = 20 #敌人波次
 var score=0 #分数
@@ -70,25 +70,32 @@ func _ready():
 	pass
 
 func _process(_delta):
+	$HUD/Boom_Num.text=str(_boom_num)
 	if player.current_health<=0:
 		game_over()
 	_Select_Screen()
 	
 func _input(_event):
-	if Input.is_action_just_pressed("click_l") and  player.current_health>0 and _boom_num<_boom_max_num:
+	if Input.is_action_just_pressed("click_l") and  player.current_health>0 and _boom_num>0:
 		var new_ = boom.instantiate()
 		new_.length = _boom_length
 		new_.atk = _boom_atk
 		new_.position = $player.global_position
 		new_.world=$"."
-		_boom_num +=1
+		_boom_num -=1
 		add_child(new_)
+	if Input.is_action_just_pressed("pause"):
+		toggle_pause()
+		$HUD/Pause_button.show()
 
+func toggle_pause():
+	get_tree().paused = !get_tree().paused
+	
 func enemy_dead(name):
 	if name in _enemy_list:
 		_enemy_list.erase(name)
 		score+=5
-		
+
 func new_wave():
 	_enemy_waves += 1
 	$HUD.Wave_Number +=1
@@ -148,7 +155,7 @@ func _Select_Screen():
 		$HUD/Select3.show()
 	if len(_enemy_list)!=0:
 		key1=randi_range(0,0)
-		key2=randi_range(0,4)
+		key2=randi_range(4,4)
 		key3=randi_range(0,4)
 		text1=rogue_dict[key1]
 		text2=rogue_dict[key2]
@@ -186,8 +193,9 @@ func level_up():
 		player.current_health +=10
 	if select==3:
 		_boom_max_num +=1
+		_boom_num +=1
 	if select==4:
-		player.SPEED +=5
+		player.speed +=10
 	if select==5:
 		_slim_num +=1
 	if select==6:

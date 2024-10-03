@@ -6,16 +6,19 @@ signal  select2
 signal  select3
 # Called when the node enters the scene tree for the first time.
 @export var player:CharacterBody2D
+@export var world:Node2D
 var Wave_Number=0
 
 func _ready():
 	$Select1.hide()
 	$Select2.hide()
 	$Select3.hide()
+	$Pause_button.hide()
 func _process(delta):
 	$Health_Bar.value=player.current_health
 	$Health_Label.text = str(player.current_health)
 	$Wave_Number_Label.text=str(Wave_Number)
+
 func show_Title_Label(text):
 	$Title_Label.text = text
 	$Title_Label.show()
@@ -58,3 +61,7 @@ func _on_select_3_pressed():
 	$Select2.hide()
 	$Select3.hide()
 	select3.emit()
+
+func _on_pause_button_pressed():
+	$Pause_button.hide()
+	world.toggle_pause()

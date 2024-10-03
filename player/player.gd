@@ -1,13 +1,8 @@
 extends CharacterBody2D
 
-
-const SPEED = 200.0
-
-
-#@export var max_health:TextureProgressBar
 @export var max_health = 100
 var current_health = max_health
-@export var speed=400
+@export var speed=200
 @onready var health_bar = $health_bar
 
 func _ready():
@@ -46,10 +41,10 @@ func show_game_over():
 func move():
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if direction:
-		velocity = direction * SPEED
+		velocity = direction * speed
 		$AnimatedSprite2D.animation="walk"
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.y = move_toward(velocity.y, 0, speed)
 		$AnimatedSprite2D.animation="stay"
 	move_and_slide()

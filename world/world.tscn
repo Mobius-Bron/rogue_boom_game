@@ -90,8 +90,9 @@ position = Vector2(-759, -496)
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2(759, 494)
 
-[node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_o0usf")]
+[node name="HUD" parent="." node_paths=PackedStringArray("player", "world") instance=ExtResource("4_o0usf")]
 player = NodePath("../player")
+world = NodePath("..")
 
 [node name="Score_Timer" type="Timer" parent="."]
 

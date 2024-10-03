@@ -59,7 +59,7 @@ func boom_():
 			i.hurt(atk)
 	
 	self.queue_free()
-	world._boom_num -=1
+	world._boom_num +=1
 
 func _on_wave_area_area_entered(area):
 	if area.name == "boom_area":
