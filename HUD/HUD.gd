@@ -1,7 +1,9 @@
 extends CanvasLayer
 
 signal  start_game
-signal  select
+signal  select1
+signal  select2
+signal  select3
 # Called when the node enters the scene tree for the first time.
 @export var player:CharacterBody2D
 var Wave_Number=0
@@ -43,16 +45,16 @@ func _on_select_1_pressed():
 	$Select1.hide()
 	$Select2.hide()
 	$Select3.hide()
-	select.emit()
+	select1.emit()
 	
 func _on_select_2_pressed():
 	$Select1.hide()
 	$Select2.hide()
 	$Select3.hide()
-	select.emit()
+	select2.emit()
 	
 func _on_select_3_pressed():
 	$Select1.hide()
 	$Select2.hide()
 	$Select3.hide()
-	select.emit()
+	select3.emit()

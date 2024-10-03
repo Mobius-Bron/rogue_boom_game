@@ -24,8 +24,8 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.flip_h=false
 	elif velocity.x ==0 and velocity.y ==0:
 		$AnimatedSprite2D.animation="stay"
-	#if current_health>0:
-	move()
+	if current_health>0:
+		move()
 
 func hurt(_atk):
 	if current_health>0:	
@@ -52,5 +52,4 @@ func move():
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		$AnimatedSprite2D.animation="stay"
-
 	move_and_slide()

@@ -12,6 +12,7 @@ var layer: int = 0
 @export var length: int = 3
 @export var boom_time = 3
 @export var player:CharacterBody2D
+@export var world:Node2D
 
 var wave_list = [2,0,1,2,3]
 var nextTargets = []
@@ -58,6 +59,7 @@ func boom_():
 			i.hurt(atk)
 	
 	self.queue_free()
+	world._boom_num -=1
 
 func _on_wave_area_area_entered(area):
 	if area.name == "boom_area":

@@ -108,30 +108,34 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Select1" type="Button" parent="."]
-offset_left = 30.0
+offset_left = 25.0
 offset_top = 142.0
-offset_right = 380.0
+offset_right = 375.0
 offset_bottom = 492.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("2_3bxhs")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 50
 text = "one"
+icon_alignment = 1
+expand_icon = true
 
 [node name="Select2" type="Button" parent="."]
-offset_left = 414.0
+offset_left = 405.0
 offset_top = 142.0
-offset_right = 764.0
+offset_right = 755.0
 offset_bottom = 492.0
 theme_override_fonts/font = ExtResource("2_3bxhs")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 50
 text = "two"
 
 [node name="Select3" type="Button" parent="."]
 offset_left = 783.0
-offset_top = 142.0
+offset_top = 138.0
 offset_right = 1133.0
-offset_bottom = 492.0
+offset_bottom = 488.0
 theme_override_fonts/font = ExtResource("2_3bxhs")
-theme_override_font_sizes/font_size = 200
+theme_override_font_sizes/font_size = 50
 text = "thr"
 
 [connection signal="timeout" from="Title_Label_Timer" to="." method="_on_title_label_timer_timeout"]
