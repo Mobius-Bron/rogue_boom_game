@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3ulb8wa56x3j"
-path="res://.godot/imported/health_bar_under.png-c8942cd9c958619ff2f8313f62bf9fad.ctex"
+uid="uid://d1l20wb7uy2e0"
+path="res://.godot/imported/石头先辈.png-c33995ae7f5f86187b7c1ab1cec278a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemys/flame_bat/health_bar_under.png"
-dest_files=["res://.godot/imported/health_bar_under.png-c8942cd9c958619ff2f8313f62bf9fad.ctex"]
+source_file="res://arts/石头先辈.png"
+dest_files=["res://.godot/imported/石头先辈.png-c33995ae7f5f86187b7c1ab1cec278a1.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://di0533rcopumy"]
 
 [ext_resource type="Script" path="res://player/boom.gd" id="1_oye5e"]
-[ext_resource type="Texture2D" uid="uid://d3bm6jq0ga0ih" path="res://player/boom_wave_.png" id="2_0jk1s"]
-[ext_resource type="Texture2D" uid="uid://d4dwuu528nl6w" path="res://player/boom_planB_.png" id="3_b3fp6"]
+[ext_resource type="Texture2D" uid="uid://d3bm6jq0ga0ih" path="res://arts/boom_wave_.png" id="2_0jk1s"]
+[ext_resource type="Texture2D" uid="uid://d4dwuu528nl6w" path="res://arts/boom_planB_.png" id="3_p74nl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yosw2"]
 texture = ExtResource("2_0jk1s")
@@ -21,7 +21,7 @@ texture_region_size = Vector2i(32, 32)
 3:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r643"]
-texture = ExtResource("3_b3fp6")
+texture = ExtResource("3_p74nl")
 texture_region_size = Vector2i(32, 32)
 0:0/animation_speed = 5.0
 0:0/animation_frame_0/duration = 1.0

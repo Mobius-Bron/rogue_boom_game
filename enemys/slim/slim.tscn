@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://djd2td8kh8ebf"]
 
 [ext_resource type="Script" path="res://enemys/slim/slim.gd" id="1_wj2yn"]
-[ext_resource type="Texture2D" uid="uid://bbvn33rur40ph" path="res://enemys/slim/史莱姆_绿_王冠.png" id="2_wiayn"]
-[ext_resource type="Texture2D" uid="uid://b3jbsekp6wog2" path="res://enemys/slim/health_bar_under.png" id="3_h274s"]
-[ext_resource type="Texture2D" uid="uid://djuxjxvba2r1k" path="res://enemys/slim/health_bar - progress.png" id="4_1tj8b"]
+[ext_resource type="Texture2D" uid="uid://bbvn33rur40ph" path="res://arts/史莱姆_绿_王冠.png" id="2_wiayn"]
+[ext_resource type="Texture2D" uid="uid://b3jbsekp6wog2" path="res://arts/health_bar_under.png" id="3_h274s"]
+[ext_resource type="Texture2D" uid="uid://djuxjxvba2r1k" path="res://arts/health_bar - progress.png" id="4_1tj8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wrjw"]
 size = Vector2(20, 11.25)

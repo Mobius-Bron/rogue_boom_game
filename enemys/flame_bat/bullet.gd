@@ -16,7 +16,6 @@ func _process(_delta):
 	velocity=dir*speed
 	move_and_slide()
 
-
 func _on_area_2d_area_entered(area):
 	if area.name == "hurt_area" or area.name == "player_hurt_area":
 		var node = area.get_parent()

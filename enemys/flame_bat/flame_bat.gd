@@ -56,7 +56,7 @@ func _on_shoot_timer_timeout():
 func _on_shoot_area_area_entered(area):
 	if area.name == "player_hurt_area" :
 		$shoot_timer.start()
-		
+
 func _on_shoot_area_area_exited(area):
 	if area.name == "player_hurt_area" :
 		$shoot_timer.stop()

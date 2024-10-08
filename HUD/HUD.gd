@@ -21,6 +21,7 @@ func _ready():
 	$Select5.hide()
 	$Select6.hide()
 	$Pause_button.hide()
+
 func _process(delta):
 	$Health_Bar.value=player.current_health
 	$Health_Label.text = str(player.current_health)

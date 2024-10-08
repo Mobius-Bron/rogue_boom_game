@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bseqddw3xg50v"
-path="res://.godot/imported/health_bar - progress.png-ec732d915d4211168fe88bc1ff09a412.ctex"
+path="res://.godot/imported/health_bar - progress.png-36589dbba14c42ae1c2dbdbeaa6893c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemys/stone/health_bar - progress.png"
-dest_files=["res://.godot/imported/health_bar - progress.png-ec732d915d4211168fe88bc1ff09a412.ctex"]
+source_file="res://arts/health_bar - progress.png"
+dest_files=["res://.godot/imported/health_bar - progress.png-36589dbba14c42ae1c2dbdbeaa6893c1.ctex"]
 
 [params]
 

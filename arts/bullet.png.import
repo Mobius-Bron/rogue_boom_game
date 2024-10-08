@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm6l65bdlkkps"
-path="res://.godot/imported/炸弹人行走图4.png-79da3294c22fac2fd705d48d426323f5.ctex"
+uid="uid://bwy147bxebqcn"
+path="res://.godot/imported/bullet.png-5f658ffb9d724e860fe1db41034c8b3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/炸弹人行走图4.png"
-dest_files=["res://.godot/imported/炸弹人行走图4.png-79da3294c22fac2fd705d48d426323f5.ctex"]
+source_file="res://arts/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-5f658ffb9d724e860fe1db41034c8b3b.ctex"]
 
 [params]
 

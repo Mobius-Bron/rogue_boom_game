@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4dwuu528nl6w"
-path="res://.godot/imported/boom_planB_.png-4fadddb23f71af7908d9fc2c32c5b3a3.ctex"
+uid="uid://d3bm6jq0ga0ih"
+path="res://.godot/imported/boom_wave_.png-c91e9999e6fc64902df69807c3db2eb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/boom_planB_.png"
-dest_files=["res://.godot/imported/boom_planB_.png-4fadddb23f71af7908d9fc2c32c5b3a3.ctex"]
+source_file="res://arts/boom_wave_.png"
+dest_files=["res://.godot/imported/boom_wave_.png-c91e9999e6fc64902df69807c3db2eb6.ctex"]
 
 [params]
 

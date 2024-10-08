@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwy147bxebqcn"
-path="res://.godot/imported/bullet.png-2430f79104e3ca75acca393420c63da0.ctex"
+uid="uid://dm6l65bdlkkps"
+path="res://.godot/imported/炸弹人行走图4.png-959d5b94ee5147d05625664c4b50ae31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemys/flame_bat/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-2430f79104e3ca75acca393420c63da0.ctex"]
+source_file="res://arts/炸弹人行走图4.png"
+dest_files=["res://.godot/imported/炸弹人行走图4.png-959d5b94ee5147d05625664c4b50ae31.ctex"]
 
 [params]
 

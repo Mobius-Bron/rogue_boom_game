@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://o06t8w7cvrl3"]
 
 [ext_resource type="Script" path="res://enemys/stone/stone.gd" id="1_mm487"]
-[ext_resource type="Texture2D" uid="uid://d1l20wb7uy2e0" path="res://enemys/stone/石头先辈.png" id="2_t7t6b"]
-[ext_resource type="Texture2D" uid="uid://bksj7wo3tr7cj" path="res://enemys/stone/health_bar_under.png" id="3_s8g2c"]
-[ext_resource type="Texture2D" uid="uid://bseqddw3xg50v" path="res://enemys/stone/health_bar - progress.png" id="4_ethhh"]
+[ext_resource type="Texture2D" uid="uid://d1l20wb7uy2e0" path="res://arts/石头先辈.png" id="2_t7t6b"]
+[ext_resource type="Texture2D" uid="uid://bksj7wo3tr7cj" path="res://arts/health_bar_under.png" id="3_s8g2c"]
+[ext_resource type="Texture2D" uid="uid://bseqddw3xg50v" path="res://arts/health_bar - progress.png" id="4_ethhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iggg"]
 size = Vector2(48.75, 39.375)

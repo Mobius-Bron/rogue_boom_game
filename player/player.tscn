@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://bvi1p33rdmmj5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_g3aws"]
-[ext_resource type="Texture2D" uid="uid://dm6l65bdlkkps" path="res://player/炸弹人行走图4.png" id="2_ewdma"]
-[ext_resource type="Texture2D" uid="uid://cemf67eqc8jf" path="res://player/炸弹人行走图dead.png" id="2_ik7wp"]
-[ext_resource type="Texture2D" uid="uid://cb4cb2enn0q5a" path="res://player/health_bar_under.png" id="3_gq4ob"]
-[ext_resource type="Texture2D" uid="uid://dn2dr6tjk7jfq" path="res://player/health_bar _green_ progress.png" id="4_xhjqp"]
+[ext_resource type="Texture2D" uid="uid://dm6l65bdlkkps" path="res://arts/炸弹人行走图4.png" id="2_ewdma"]
+[ext_resource type="Texture2D" uid="uid://cemf67eqc8jf" path="res://arts/炸弹人行走图dead.png" id="2_ik7wp"]
+[ext_resource type="Texture2D" uid="uid://cb4cb2enn0q5a" path="res://arts/health_bar_under.png" id="3_gq4ob"]
+[ext_resource type="Texture2D" uid="uid://dn2dr6tjk7jfq" path="res://arts/health_bar _green_ progress.png" id="4_xhjqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn88"]
 size = Vector2(14, 9)

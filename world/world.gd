@@ -11,7 +11,7 @@ var flame_bat = preload("res://enemys/flame_bat/flame_bat.tscn")
 @export var player:CharacterBody2D
 var hard #难度
 var _boom_length: int = 2 #炸弹长度
-var _boom_atk: float = 1 #炸弹伤害
+var _boom_atk: float = 5 #炸弹伤害
 var _boom_max_num: int = 3 #炸弹最大数量
 var _boom_num: int = _boom_max_num #炸弹数量
 var _enemy_list = [] #敌人列表
@@ -28,7 +28,7 @@ var select=0 #rogue词条选择后判断使用的变量
 #怪物属性
 var _slim_hp: float = 5
 var _slim_atk: float = 1
-var _slim_num: int = 0
+var _slim_num: int = 4
 
 var _stone_hp: float = 75
 var _stone_atk: float = 15
@@ -36,11 +36,11 @@ var _stone_num: int = 0
 
 var _magma_hp: float = 1
 var _magma_atk: float = 15
-var _magma_num: int = 1
+var _magma_num: int = 0
 
 var _flame_bat_hp: float = 10
 var _flame_bat_atk: float = 5
-var _flame_bat_num: int = 0
+var _flame_bat_num: int = 3
 
 #rogue词条字典
 var rogue_dict ={
@@ -50,20 +50,16 @@ var rogue_dict ={
 	3:"玩家\n炸弹数量+1",
 	4:"玩家\n移速+5",
 	
-	5:"史莱姆\n数量+1",
-	6:"史莱姆\n伤害+1",
-	7:"史莱姆\n生命值+5",
+	5:"史莱姆\n伤害+1",
+	6:"史莱姆\n生命值+5",
 	
-	8:"蝙蝠\n数量+1",
-	9:"蝙蝠\n伤害+2",
-	10:"蝙蝠\n生命值+1",
+	7:"蝙蝠\n伤害+2",
+	8:"蝙蝠\n生命值+1",
 	
-	11:"石头先辈\n数量+1",
-	12:"石头先辈\n伤害+5",
-	13:"石头先辈\n生命值+10",
+	9:"石头先辈\n伤害+5",
+	10:"石头先辈\n生命值+10",
 	
-	14:"滚动披萨\n数量+1",
-	15:"滚动披萨\n伤害+3",
+	11:"滚动披萨\n伤害+3",
 }
 
 func _ready():
@@ -97,6 +93,16 @@ func enemy_dead(name):
 		score+=5
 
 func new_wave():
+	var enemy_num_add=randi_range(0,3)
+	if(enemy_num_add==0):
+		_slim_num +=1
+	if(enemy_num_add==1):
+		_flame_bat_num +=1
+	if(enemy_num_add==2):
+		_stone_num +=1
+	if(enemy_num_add==3):
+		_magma_num +=1		
+	player.current_health=player.max_health
 	_enemy_waves += 1
 	$HUD.Wave_Number +=1
 	add_enemy(slim, _slim_num, _slim_hp, _slim_atk, "slim")
@@ -133,7 +139,7 @@ func new_game():
 	new_wave()
 
 func _on_score_timer_timeout():
-	score +=0.05
+	score +=0.2
 	$HUD.update_score(score)
 
 func _on_start_timer_timeout():
@@ -161,9 +167,9 @@ func _Select_Screen():
 		key1=randi_range(0,4)
 		key2=randi_range(0,4)
 		key3=randi_range(0,4)
-		key4=randi_range(5,15)
-		key5=randi_range(5,15)
-		key6=randi_range(5,15)
+		key4=randi_range(5,11)
+		key5=randi_range(5,11)
+		key6=randi_range(5,11)
 		$HUD/Select1.hide()
 		$HUD/Select2.hide()
 		$HUD/Select3.hide()
@@ -198,26 +204,18 @@ func level_up():
 	if select==4:
 		player.speed +=10
 	if select==5:
-		_slim_num +=1
-	if select==6:
 		_slim_atk +=1
+	if select==6:
+		_slim_hp +=5
 	if select==7:
-		_stone_hp +=5
-	if select==8:
-		_flame_bat_num +=1
-	if select==9:
 		_flame_bat_atk +=2
-	if select==10:
+	if select==8:
 		_flame_bat_hp +=1
-	if select==11:
-		_stone_num +=1
-	if select==12:
+	if select==9:
 		_stone_atk +=5
-	if select==13:
+	if select==10:
 		_stone_hp +=10
-	if select==14:
-		_magma_num +=1
-	if select==15:
+	if select==11:
 		_magma_atk +=3
 
 func _on_hud_select_4():

@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjrth1ol1rbvr"]
 
-[ext_resource type="Texture2D" uid="uid://bwy147bxebqcn" path="res://enemys/flame_bat/bullet.png" id="1_m3a8b"]
 [ext_resource type="Script" path="res://enemys/flame_bat/bullet.gd" id="1_qguyk"]
+[ext_resource type="Texture2D" uid="uid://bwy147bxebqcn" path="res://arts/bullet.png" id="2_r7w8b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3tlo"]
-atlas = ExtResource("1_m3a8b")
+atlas = ExtResource("2_r7w8b")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f8is5"]

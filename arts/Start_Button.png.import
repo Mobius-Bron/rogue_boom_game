@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vv7oh0dms7ro"
-path="res://.godot/imported/health_bar - progress.png-fdc1809a13f35b6f6dd5738cfc752a34.ctex"
+uid="uid://dc73gf52qurkm"
+path="res://.godot/imported/Start_Button.png-a9aa3fc4ca8b94fa2dc2ae529c5a17be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemys/flame_bat/health_bar - progress.png"
-dest_files=["res://.godot/imported/health_bar - progress.png-fdc1809a13f35b6f6dd5738cfc752a34.ctex"]
+source_file="res://arts/Start_Button.png"
+dest_files=["res://.godot/imported/Start_Button.png-a9aa3fc4ca8b94fa2dc2ae529c5a17be.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtkkmc3qlvmr0"
-path="res://.godot/imported/岩浆怪动画.png-43f93696983b0f282ae5386156785a51.ctex"
+uid="uid://dvhtub83i4w84"
+path="res://.godot/imported/flame_bat.png-208bbd5f8067c2bcf4251b1544c4552b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemys/magma/岩浆怪动画.png"
-dest_files=["res://.godot/imported/岩浆怪动画.png-43f93696983b0f282ae5386156785a51.ctex"]
+source_file="res://arts/flame_bat.png"
+dest_files=["res://.godot/imported/flame_bat.png-208bbd5f8067c2bcf4251b1544c4552b.ctex"]
 
 [params]
 

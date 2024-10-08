@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3jbsekp6wog2"
-path="res://.godot/imported/health_bar_under.png-79cae10aeb8c174b9c64cd3a899e51e2.ctex"
+uid="uid://dtkkmc3qlvmr0"
+path="res://.godot/imported/岩浆怪动画.png-a8d109c8d67a907e517dc3892fbf0bca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemys/slim/health_bar_under.png"
-dest_files=["res://.godot/imported/health_bar_under.png-79cae10aeb8c174b9c64cd3a899e51e2.ctex"]
+source_file="res://arts/岩浆怪动画.png"
+dest_files=["res://.godot/imported/岩浆怪动画.png-a8d109c8d67a907e517dc3892fbf0bca.ctex"]
 
 [params]
 

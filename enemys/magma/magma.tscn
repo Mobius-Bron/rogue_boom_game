@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://bahvrnyebs6mn"]
 
 [ext_resource type="Script" path="res://enemys/magma/magma.gd" id="1_c7gec"]
-[ext_resource type="Texture2D" uid="uid://d3bm6jq0ga0ih" path="res://player/boom_wave_.png" id="2_8kqf4"]
-[ext_resource type="Texture2D" uid="uid://dtkkmc3qlvmr0" path="res://enemys/magma/岩浆怪动画.png" id="3_sv6md"]
+[ext_resource type="Texture2D" uid="uid://d3bm6jq0ga0ih" path="res://arts/boom_wave_.png" id="2_8kqf4"]
+[ext_resource type="Texture2D" uid="uid://dtkkmc3qlvmr0" path="res://arts/岩浆怪动画.png" id="3_sv6md"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50gye"]
 
